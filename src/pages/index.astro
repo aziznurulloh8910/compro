@@ -1,498 +1,522 @@
 ---
-import './src/styles/global.css'
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Bandung Semesta Teknologi</title>
-    <style>
-        *{
-            font-family: "Montserrat", Arial, sans-serif;
-        }
-    </style>
-</head>
-<body>
+<Layout title="Bandung Semesta Teknologi - IT Solution Provider & Software House">
+    
     <main class="overflow-x-hidden">
-        <!-- Nav Wrapper -->
-        <nav class="fixed top-0 z-10 flex justify-between items-center bg-transparent w-full z-20 px-4 py-6 md:px-14 md:py-4" id="nav">
-            <!-- Logo Link Wrapper -->
-            <a href="/index.html" class="flex">
-                <img src="/img/icons/logo-circle.svg" class="w-[48px] md:w-12 mr-2">
-                <span class="text-[10px] md:text-xs font-bold text-white">BANDUNG<br>SEMESTA<br>TEKNOLOGI</span>
-            </a>
-            <!-- Logo Link Wrapper -->
+        <Navigation />
 
-            <!-- Center Nav Wrapper -->
-            <div class="hidden md:flex nav-links justify-center items-center gap-8">
-                <a class="text-sm text-white font-bold" href="">HOME</a>
-                <a class="text-sm text-white font-medium" href="">ABOUT US</a>
-                
-                <!-- SERVICE DROPDOWN -->
-                <div class="service-dropdown text-white font-medium text-sm">
-                    <button class="dropdown-toggle flex items-center gap-2 rounded">
-                    <span class="pointer-events-none">SERVICES</span>
-                    <svg class="w-3 h-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>chevron-down</title>
-                        <g fill="none">
-                        <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                    </button>
-                    <div class="dropdown-menu absolute hidden bg-gray-800 text-white font-medium text-sm rounded-b-lg w-48">
-                    <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Project-based</a>
-                    <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Managed Service</a>
-                    <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Engineering</a>
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen">
+            <div class="grid md:grid-cols-2 grid-cols-1 min-h-screen">
+                <!-- Left Side - Desktop -->
+                <div class="hidden md:flex flex-col justify-between bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
+                    <!-- Background Pattern -->
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute top-10 left-10 w-32 h-32 bg-sky-500 rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-20 right-10 w-24 h-24 bg-blue-500 rounded-full blur-2xl"></div>
                     </div>
-                </div>
-
-                <!-- SOLUTIONS DROPDOWN -->
-                <div class="service-dropdown text-white font-medium text-sm">
-                    <button class="dropdown-toggle flex items-center gap-2 rounded">
-                    <span class="pointer-events-none">SOLUTIONS</span>
-                    <svg class="w-3 h-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>chevron-down</title>
-                        <g fill="none">
-                        <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                    </button>
-                    <div class="dropdown-menu absolute hidden bg-gray-800 text-white font-medium text-sm rounded-b-lg pb-2 w-48">
-                        <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Web Development</a>
-                        <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Mobile Apps Development</a>
-                        <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">IoT Engineering</a>
-                        <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Maintenance</a>
-                        <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Engineering</a>
-                    </div>
-                </div>
-
-                <a class="text-sm text-white font-medium" href="">PARTNERS</a>
-            </div>
-            <!-- Center Nav Wrapper -->
-
-            <!-- Contact Button -->
-            <a class="hidden md:block border-2 rounded-md border-white py-3 px-5 text-sm font-medium rounded-md text-white" href="">CONTACT US</a>
-            <!-- Contact Button -->
-
-            <!-- Mobile Nav -->
-            <div x-data="{ expanded: false }" class="md:hidden" :class="expanded ? 'absolute w-full top-0 right-0 z-20 bg-gray-800' : 'bg-transparent'">
-                <button @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="mobile-nav" :class="expanded ? 'relative my-8 mx-4 float-right z-30' : ''"><img src="/img/icons/hamburger.svg" alt="" class="w-[24px]"></button>
-                <div id="mobile-nav" :class="expanded ? 'mt-10 absolute flex flex-col gap-4 right-0 md:hidden w-screen h-screen py-6 bg-gray-800 text-white transform origin-center transition duration-400 ease-in-out' : 'hidden'">
-                    <a class="text-sm text-white font-bold pl-4" href="">Home</a>
-                    <a class="text-sm text-white font-medium pl-4" href="">About Us</a>
                     
-                    <!-- SERVICE DROPDOWN -->
-                    <div x-data="{ expanded: false }" class="relative px-4 transform origin-center transition duration-400 ease-in-out" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="link-service" :class="expanded ? 'bg-gray-900 py-2' : 'bg-gray-800'">
-                        <h2 class="text-2xl font-bold">
-                            <button id="link-service-title" type="button" class="flex items-center justify-between w-full text-left font-medium text-sm" :class="{'py-2' : expanded}">
-                                Services
-                                <svg class="w-3 h-3 pointer-events-none fill-white shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <title>chevron-down</title>
-                                    <g fill="none">
-                                    <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform origin-center transition duration-400 ease-out" :class="{'!rotate-180': expanded}"></path>
-                                    </g>
-                                </svg>                             
-                            </button>
-                        </h2>
-                        <div id="link-service" role="region" aria-labelledby="link-service-title" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
-                            <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
-                                <a href="" class="text-xs">Project-based</a>
-                                <a href="" class="text-xs">Managed Service</a>
-                                <a href="" class="text-xs">Engineering</a>
+                    <div class="relative z-10">
+                        <div class="pl-14 pt-32 pb-20">
+                            <div class="mb-6">
+                                <span class="text-sky-400 text-sm font-semibold tracking-wider uppercase">Welcome to BTEKLabs</span>
+                            </div>
+                            <h1 class="mb-8 text-5xl xl:text-6xl font-bold text-white leading-tight">
+                                EMPOWERING<br>
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">
+                                    TOMORROW
+                                </span>
+                                <sup class="text-xl text-sky-400">&trade;</sup>
+                            </h1>
+                            <p class="text-gray-300 text-lg mb-8 leading-relaxed max-w-md">
+                                Transforming businesses through innovative technology solutions and cutting-edge software development.
+                            </p>
+                            <div class="flex gap-4">
+                                <a class="group bg-sky-500 hover:bg-sky-600 text-white py-4 px-8 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" href="#about">
+                                    <span class="flex items-center gap-2">
+                                        Learn More
+                                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <a class="border-2 border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white py-4 px-8 font-semibold rounded-lg transition-all duration-300" href="#contact">
+                                    Get Started
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-sky-500 to-blue-600 w-full px-14 py-6">
+                            <div class="flex items-center justify-between text-white">
+                                <span class="font-semibold">IT Solution Provider & Software House</span>
+                                <div class="flex gap-4">
+                                    <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                                    <div class="w-2 h-2 bg-white rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
+                                    <div class="w-2 h-2 bg-white rounded-full animate-pulse" style="animation-delay: 1s"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- SERVICE DROPDOWN -->
+                </div>
+                
+                <!-- Right Side - Hero Image -->
+                <div class="relative bg-[url('/img/hero.png')] bg-cover bg-center min-h-screen">
+                    <!-- Overlay for better text readability -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                     
-                    <!-- SOLUTIONS DROPDOWN -->
-                    <div x-data="{ expanded: false }" class="relative px-4 transform origin-center transition duration-400 ease-in-out" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="link-solutions" :class="expanded ? 'bg-gray-900 py-2' : 'bg-gray-800'">
-                        <h2 class="text-2xl font-bold">
-                            <button id="link-solutions-title" type="button" class="flex items-center justify-between w-full text-left font-medium text-sm" :class="{'py-2' : expanded}">
-                                Solutions
-                                <svg class="w-3 h-3 pointer-events-none fill-white shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <title>chevron-down</title>
-                                    <g fill="none">
-                                    <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform origin-center transition duration-400 ease-out" :class="{'!rotate-180': expanded}"></path>
-                                    </g>
-                                </svg>                             
-                            </button>
-                        </h2>
-                        <div id="link-solutions" role="region" aria-labelledby="link-solutions-title" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
-                            <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
-                                <a href="" class="text-xs">Web Development</a>
-                                <a href="" class="text-xs">Mobile Apps Development</a>
-                                <a href="" class="text-xs">IoT Engineering</a>
-                                <a href="" class="text-xs">Maintenance</a>
-                                <a href="" class="text-xs">Engineering</a>
+                    <!-- Mobile Content -->
+                    <div class="md:hidden relative z-10 flex flex-col justify-between h-screen px-6 py-8">
+                        <div class="pt-20">
+                            <span class="text-sky-300 text-sm font-semibold tracking-wider uppercase block mb-4">Welcome to BTEKLabs</span>
+                        </div>
+
+                        <div class="text-center">
+                            <h1 class="mb-6 text-4xl font-bold text-white leading-tight">
+                                EMPOWERING<br>
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-400">
+                                    TOMORROW
+                                </span>
+                                <sup class="text-lg text-sky-400">&trade;</sup>
+                            </h1>
+                            <p class="text-gray-200 text-base mb-8 leading-relaxed">
+                                Transforming businesses through innovative technology solutions.
+                            </p>
+                            <div class="flex flex-col gap-3">
+                                <a class="bg-sky-500 hover:bg-sky-600 text-white py-4 px-8 font-semibold rounded-lg transition-all duration-300 shadow-lg" href="#about">
+                                    Learn More About BTEKLabs
+                                </a>
+                                <a class="border-2 border-sky-400 text-sky-300 hover:bg-sky-400 hover:text-white py-3 px-6 font-semibold rounded-lg transition-all duration-300" href="#contact">
+                                    Get Started
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="mb-4">
+                                <svg class="w-8 h-8 mx-auto text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                            </div>
+                            <div class="bg-gradient-to-r from-sky-500 to-blue-600 rounded-lg px-6 py-4 text-white text-sm font-semibold">
+                                IT Solution Provider & Software House
                             </div>
                         </div>
                     </div>
-                    <!-- SOLUTIONS DROPDOWN -->
-
-                    <a class="text-sm text-white font-medium pl-4" href="">Partners</a>                
                 </div>
             </div>
-            <!-- Mobile Nav -->
-        </nav>
-        <!-- Nav Wrapper -->
-
-        <!-- Hero wrapper -->
-        <div class="grid md:grid-cols-2 grid-cols-1 h-screen">
-            <div class="h-full hidden md:flex flex-col justify-between bg-gray-900">
-                <div class="">&nbsp;</div>
-                
-                <!-- Title Wrapper -->
-                <div class="pl-14 flex flex-col justify-center">
-                    <h1 class="mb-8 text-6xl font-bold text-white leading-normal">EMPOWERING TOMORROW &trade;</h1>
-                    <a class="bg-sky-500 text-sm py-4 px-6 font-semibold rounded-md text-white w-fit" href="">Learn More About BTEKLabs</a>
-                </div>
-                <!-- Title Wrapper -->
-
-                <span class="text-white bg-sky-500 w-full px-14 py-4">IT Solution Provider & Software House</span>
-            </div>
-            <div class="bg-[url('/img/hero.png')] w-full h-full bg-center">
-                <div class="flex flex-col justify-between h-full md:hidden">
-                    <div class="">&nbsp;</div>
-
-                    <!-- Title Wrapper -->
-                    <div class="flex flex-col justify-center px-4">
-                        <h1 class="mb-4 text-4xl font-bold text-white leading-normal">EMPOWERING TOMORROW &trade;</h1>
-                        <a class="bg-sky-500 text-xs py-4 px-6 font-semibold rounded-md text-white w-fit" href="">Learn More About BTEKLabs</a>
-                    </div>
-                    <!-- Title Wrapper -->
-
-                    <div class="bot w-full flex flex-col gap-4 items-center">
-                        <img src="/img/icons/mouse.svg" alt="" class="w-[32px]">
-                        <div class="text-white bg-sky-500 w-full px-4 py-4 text-xs">IT Solution Provider & Software House</div>                    
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Hero wrapper -->
+        </section>
         
-        <!-- ABOUT WRAPPER -->
-        <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen text-slate-950" id="about">
-            <div class="hidden md:block py-8 flex flex-col justify-end bg-[url('/img/crafting.png')] bg-no-repeat bg-cover h-full"></div>
-
-            <div class="text-wrapper w-full flex flex-col justify-center px-4 md:px-8 md:pl-14 py-24 bg-white">
-                <!-- subtitle wrapper -->
-                <div class="subtitle-wrapper w-full flex items-center mb-6">
-                    <span class="text-sm md:text-lg font-bold uppercase tracking-widest text-sky-400">about</span>
-                    <hr class="border-1 border-sky-500 w-full ml-8  ">
-                </div>
-                <!-- subtitle wrapper -->
-                
-                <div class="text-wrapper mb-12">
-                    <h2 class="text-2xl md:text-5xl font-bold mb-4 leading-tight">Crafting Excellent<br>Innovations</h2>
-                    <p class="text-justify text-[12px] md:text-sm leading-normal mb-8 md:mb-12">BTEKLabs is a beacon of professionalism and innovation in the technology industry. With an unwavering commitment to excellence, we excel in crafting solutions that not only meet but exceed the expectations of our clients.<br><br>Every line of code is meticulously written to deliver top-tier, cutting-edge software. You can expect a seamless blend of professionalism and innovation, resulting in solutions that empower your digital journey and set new standards in the software industry.</p>
-                    <a class="bg-sky-500 text-[12px] md:text-sm py-4 px-6 font-semibold rounded-md text-white w-fit" href="">Know More About Our Vision</a>
+        <!-- About Section -->
+        <section id="about" class="relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+                <!-- Left Image - Desktop -->
+                <div class="hidden lg:block relative bg-[url('/img/crafting.png')] bg-cover bg-center">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/10"></div>
                 </div>
 
-                <!-- subtitle wrapper -->
-                <div class="subtitle-wrapper w-full flex justify-center items-center mb-8">
-                    <span class="text-sm md:text-lg font-bold uppercase tracking-widest text-gray-400 w-full">featured clients</span>
-                    <hr class="border-1 border-gray-400 w-3/5 md:w-full ml-8">
-                </div>
-                <!-- subtitle wrapper -->
-                <div class="image-slider h-12 flex flex-row overflow-hidden gap-4" id="clientsContainer">
-                    <img src="/img/clients.png" alt="" class="h-full">
-                    <img src="/img/clients.png" alt="" class="h-full">
-                    <img src="/img/clients.png" alt="" class="h-full">
-                    <img src="/img/clients.png" alt="" class="h-full">
-                    <img src="/img/clients.png" alt="" class="h-full">
-                    <img src="/img/clients.png" alt="" class="h-full">
-                    <img src="/img/clients.png" alt="" class="h-full">
-                    <img src="/img/clients.png" alt="" class="h-full">
-                    <img src="/img/clients.png" alt="" class="h-full">
+                <!-- Content -->
+                <div class="flex flex-col justify-center px-6 md:px-12 lg:px-16 py-16 lg:py-24 bg-white relative">
+                    <!-- Mobile background image -->
+                    <div class="lg:hidden absolute inset-0 bg-[url('/img/crafting.png')] bg-cover bg-center opacity-5"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-8">
+                            <span class="text-sm md:text-base font-bold uppercase tracking-widest text-sky-500">about us</span>
+                            <div class="flex-1 ml-6">
+                                <div class="h-px bg-gradient-to-r from-sky-500 to-transparent"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-gray-900">
+                                    Crafting Excellent<br>
+                                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600">Innovations</span>
+                                </h2>
+                                <div class="space-y-4 text-gray-700 leading-relaxed">
+                                    <p class="text-sm md:text-base">
+                                        BTEKLabs is a beacon of professionalism and innovation in the technology industry. With an unwavering commitment to excellence, we excel in crafting solutions that not only meet but exceed the expectations of our clients.
+                                    </p>
+                                    <p class="text-sm md:text-base">
+                                        Every line of code is meticulously written to deliver top-tier, cutting-edge software. You can expect a seamless blend of professionalism and innovation, resulting in solutions that empower your digital journey and set new standards in the software industry.
+                                    </p>
+                                </div>
+                                <a class="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white py-4 px-8 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mt-8" href="#vision">
+                                    <span>Discover Our Vision</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <!-- Featured Clients -->
+                            <div class="pt-8 border-t border-gray-200">
+                                <div class="flex items-center mb-6">
+                                    <span class="text-sm md:text-base font-bold uppercase tracking-widest text-gray-500">featured clients</span>
+                                    <div class="flex-1 ml-6">
+                                        <div class="h-px bg-gradient-to-r from-gray-300 to-transparent"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="clients-container overflow-hidden">
+                                    <div class="clients-slider flex gap-6 h-12">
+                                        {Array.from({length: 12}, (_, i) => (
+                                            <img 
+                                                src="/img/clients.png" 
+                                                alt={`Client ${i + 1}`} 
+                                                class="h-full w-auto opacity-60 hover:opacity-100 transition-opacity flex-shrink-0 grayscale hover:grayscale-0" 
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- ABOUT WRAPPER -->
+        </section>
 
-        <!-- SPECIALITIES WRAPPER -->
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 bg-[url('/img/expertise.png')] px-4 md:px-14 py-24 min-h-screen text-white bg-no-repeat bg-cover bg-center">
-            <!-- headline wrapper -->
-            <div class="headline-wrapper md:pr-8">
-
-                <!-- subtitle wrapper -->
-                <div class="subtitle-wrapper w-full flex items-center mb-8">
-                    <span class="text-sm md:text-lg font-bold uppercase tracking-widest text-sky-400">specialties</span>
-                    <hr class="border-1 border-sky-500 w-full ml-8">
-                </div>
-                <!-- subtitle wrapper -->
-
-                <h2 class="text-2xl md:text-5xl font-bold mb-6">Effective Solutions<br>For Your Business</h2>
-                    <p class="text-justify text-[12px] md:text-sm leading-normal">We're dedicated in delivering effective solutions for businesses by harnessing the power of the right platforms, including websites, mobile apps, and more. With a keen focus on understanding the unique needs and goals of each client, we craft tailored software solutions that drive success.<br><br>Whether it's creating user-friendly websites that leave a lasting impression, developing mobile apps that enhance accessibility and engagement, or leveraging advanced technologies for efficient business processes, we're committed to delivering results.<br><br>Our expertise in selecting the most suitable platforms ensures that businesses can thrive in the ever-evolving digital landscape, making us a trusted partner for achieving digital excellence.
-                    </p>
+        <!-- Specialties Section -->
+        <section id="specialties" class="relative bg-gray-900 overflow-hidden">
+            <!-- Background -->
+            <div class="absolute inset-0 bg-[url('/img/expertise.png')] bg-cover bg-center opacity-20"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/95 to-gray-900/90"></div>
             
-            </div>
-            <!-- headline wrapper -->
-
-            <!-- platforms wrapper -->
-            <div class="platform-wrapper h-full">
-                <div class="bg-gray-800 rounded-md flex items-center px-6 py-7 mb-3">
-                    <img class="w-[20px] md:w-[24px]" src="/img/icons/web.svg" alt="">
-                    <span class="font-bold text-[12px] md:text-sm ml-2 md:ml-4">Web Development</span>
-                </div>
-                <div class="bg-gray-800 rounded-md flex items-center px-6 py-7 mb-3">
-                    <img class="w-[20px] md:w-[24px]" src="/img/icons/mobile.svg" alt="">
-                    <span class="font-bold text-[12px] md:text-sm ml-2 md:ml-4">Mobile Apps Development</span>
-                </div>
-                <div class="bg-gray-800 rounded-md flex items-center px-6 py-7 mb-3">
-                    <img class="w-[20px] md:w-[24px]" src="/img/icons/iot.svg" alt="">
-                    <span class="font-bold text-[12px] md:text-sm ml-2 md:ml-4">IoT Engineering</span>
-                </div>
-                <div class="bg-gray-800 rounded-md flex items-center px-6 py-7 mb-3">
-                    <img class="w-[20px] md:w-[24px]" src="/img/icons/maintenance.svg" alt="">
-                    <span class="font-bold text-[12px] md:text-sm ml-2 md:ml-4">Maintenance</span>
-                </div>
-                <div class="bg-gray-800 rounded-md flex items-center px-6 py-7">
-                    <img class="w-[20px] md:w-[24px]" src="/img/icons/engineering.svg" alt="">
-                    <span class="font-bold text-[12px] md:text-sm ml-2 md:ml-4">Engineering</span>
-                </div>
-            </div>
-            <!-- platforms wrapper -->
-        </div>
-        <!-- SPECIALITIES WRAPPER -->
-
-        <!-- INNOVATIONS WRAPPER -->
-        <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen text-slate-950 gap-2 bg-stone-100">
-            <div class="text-wrapper flex flex-col justify-center px-4 md:px-8 md:pl-14 pt-8 bg-white z-10">
-                <!-- subtitle wrapper -->
-                <div class="subtitle-wrapper w-full flex items-center mb-4">
-                    <span class="font-bold uppercase tracking-widest text-sky-400">innovations</span>
-                    <hr class="border-1 border-sky-500 w-full ml-8  ">
-                </div>
-                <!-- subtitle wrapper -->
-                
-                <h2 class="text-2xl md:text-5xl font-bold mb-4 leading-tight">Your Digital Journey Starts Here</h2>
-                <p class="text-justify text-[12px] md:text-sm leading-normal">We specializes in a diverse range of fields, including Warehouse Management Systems (WMS), Point of Sales (POS) solutions, and Information Systems. Our expertise lies in creating tailored software solutions that optimize warehouse operations and efficient inventory tracking that can provide organizations with robust data management, analysis, and reporting capabilities.<br><br>With a strong track record in these specialized areas, we are The Most Trusted partner for businesses seeking software solutions that drive operational excellence and enhance their competitive edge in today's dynamic market.</p>
-                
-                <div class="flex gap-2 mt-4">
-                    <button class="bg-sky-500 text-sm p-3 font-semibold rounded-full text-white w-fit button-backwards"><img src="/img/icons/chevron-left.svg" alt=""></button>
-                    <button class="bg-sky-500 text-sm p-3 font-semibold rounded-full text-white w-fit button-forward"><img src="/img/icons/chevron-right.svg" alt=""></button>
-                </div>
-            </div>
-            <div class="carousel flex flex-row gap-2 relative">
-                <div class="px-4 md:px-8 pt-8 pb-4 md:pb-8 flex flex-col justify-end bg-[url('/img/innovations-1.png')] bg-no-repeat bg-cover h-full carousel_slide w-[32rem] shownCard">
-                    <div class="card w-screen md:w-64">
-                        <!-- subtitle wrapper -->
-                        <div class="subtitle-wrapper w-full flex items-center mb-2">
-                            <span class="font-bold uppercase tracking-widest text-white w-3/5 text-sm">web dev</span>
-                            <hr class="border-1 border-white w-full ml-8  ">
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 px-6 md:px-12 lg:px-16 py-16 lg:py-24 min-h-screen items-center">
+                <!-- Content -->
+                <div class="space-y-8">
+                    <div class="flex items-center mb-8">
+                        <span class="text-sm md:text-base font-bold uppercase tracking-widest text-sky-400">our specialties</span>
+                        <div class="flex-1 ml-6">
+                            <div class="h-px bg-gradient-to-r from-sky-400 to-transparent"></div>
                         </div>
-                        <!-- subtitle wrapper -->
-                        
-                        <h2 class="text-xl font-bold leading-normal text-white">Integrated Warehouse Management System</h2>
                     </div>
-                </div>
-                <div class="px-4 md:px-8 pt-8 pb-4 md:pb-8 flex flex-col justify-end bg-[url('/img/innovations-2.png')] bg-no-repeat bg-cover h-full carousel_slide w-[32rem]">
-                    <div class="card  w-screen md:w-64">
-                        <!-- subtitle wrapper -->
-                        <div class="subtitle-wrapper w-full flex items-center mb-2">
-                            <span class="font-bold uppercase tracking-widest text-white w-3/5 text-sm">mobile apps</span>
-                            <hr class="border-1 border-white w-2/5 ml-8  ">
-                        </div>
-                        <!-- subtitle wrapper -->
-                        
-                        <h2 class="text-xl font-bold leading-normal text-white">Point of Sales Application</h2>
-                    </div>
-                </div>
-                <div class="px-4 md:px-8 pt-8 pb-4 md:pb-8 flex flex-col justify-end bg-[url('/img/innovations-1.png')] bg-no-repeat bg-cover h-full carousel_slide w-[32rem]">
-                    <div class="card  w-screen md:w-64">
-                        <!-- subtitle wrapper -->
-                        <div class="subtitle-wrapper w-full flex items-center mb-2">
-                            <span class="font-bold uppercase tracking-widest text-white w-3/5 text-sm">web dev</span>
-                            <hr class="border-1 border-white w-2/5 ml-8  ">
-                        </div>
-                        <!-- subtitle wrapper -->
-                        
-                        <h2 class="text-xl font-bold leading-normal text-white">Integrated Warehouse Management System</h2>
-                    </div>
-                </div>
-                <div class="px-4 md:px-8 pt-8 pb-4 md:pb-8 flex flex-col justify-end bg-[url('/img/innovations-2.png')] bg-no-repeat bg-cover h-full carousel_slide w-[32rem]">
-                    <div class="card  w-screen md:w-64">
-                        <!-- subtitle wrapper -->
-                        <div class="subtitle-wrapper w-full flex items-center mb-2">
-                            <span class="font-bold uppercase tracking-widest text-white w-3/5 text-sm">mobile apps</span>
-                            <hr class="border-1 border-white w-2/5 ml-8  ">
-                        </div>
-                        <!-- subtitle wrapper -->
-                        
-                        <h2 class="text-xl font-bold leading-normal text-white">Point of Sales Application</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- INNOVATIONS WRAPPER -->
 
-        <!-- CONNECT WRAPPER -->
-        <div class="grid grid-cols-1 md:grid-cols-2 bg-sky-500 text-white px-4 md:pl-14 py-24 gap-3 md:gap-8">
-            <div class="text-wrapper flex flex-col justify-center ">
-                <!-- subtitle wrapper -->
-                <div class="subtitle-wrapper w-full flex items-center mb-4">
-                    <span class="text-[12px] md:text-sm font-bold uppercase tracking-widest w-full">connect with us</span>
-                    <hr class="border-1 border-white w-full ml-4">
-                </div>
-                <!-- subtitle wrapper -->
-                
-                <h2 class="text-2xl md:text-4xl font-bold leading-tight">Empowering your business with innovative software solutions.</h2>
-            </div>
-
-            <div class="text-wrapper flex flex-col justify-center">
-                <p class="text-[12px] md:text-sm">We help businesses to improve their operations, increase their efficiency, and reach new customers. The company does this by developing custom software solutions that meet the specific needs of each client.</p>
-                <a class="text-[12px] md:text-sm bg-gray-900 py-4 px-6 font-semibold rounded-md text-white w-fit mt-4" href="">Reach Out Now</a>            
-            </div>
-        </div>
-        <!-- CONNECT WRAPPER -->
-
-        <!-- FOOTER SECTION -->
-        <div class="bg-gray-800 px-4 md:px-14 pt-16 pb-8 flex flex-col gap-8">
-            <div class="flex flex-col md:flex-row gap-8 md:gap-16 text-white">
-                <div class="addres-wrapper flex flex-col w-full md:w-2/5 gap-5 text-[12px] md:text-sm ">
-                    <a href="/index.html" class="flex">
-                        <img src="/img/icons/logo-circle.svg" class="w-[48px] md:w-12 mr-2">
-                        <span class="text-[10px] md:text-xs font-bold text-white">BANDUNG<br>SEMESTA<br>TEKNOLOGI</span>
-                    </a>
-                    <span class="leading-normal">For more information, you can visit our store or get in touch through our contacts below:</span>
-                    <div class="info-wrapper flex gap-2 items-center">
-                        <img class="w-[20px] md:w-[24px]" src="/img/icons/location.svg" alt="">
-                        <span class="">Jl. Nata Kusumah VII, RT.01/RW.07, Kabupaten Bandung, Jawa Barat 40225</span>
-                    </div>
-                    <div class="info-wrapper flex gap-2 items-center">
-                        <img class="w-[20px] md:w-[24px]" src="/img/icons/website.svg" alt="">
-                        <a href="" class="">bteklabs.com</a>
-                    </div>
-                    <div class="info-wrapper flex gap-2 items-center">
-                        <img class="w-[20px] md:w-[24px]" src="/img/icons/mail.svg" alt="">
-                        <span class="">support@bteklabs.com</span>
-                    </div>
-                    <div class="info-wrapper flex gap-2 items-center">
-                        <img class="w-[20px] md:w-[24px]" src="/img/icons/mail.svg" alt="">
-                        <span class="">marketing@bteklabs.com</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white mb-6">
+                        Effective Solutions<br>
+                        For Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-400">Business</span>
+                    </h2>
+                    
+                    <div class="space-y-4 text-gray-300 leading-relaxed">
+                        <p class="text-sm md:text-base">
+                            We're dedicated to delivering effective solutions for businesses by harnessing the power of the right platforms, including websites, mobile apps, and cutting-edge technologies.
+                        </p>
+                        <p class="text-sm md:text-base">
+                            Whether it's creating user-friendly websites that leave a lasting impression, developing mobile apps that enhance accessibility and engagement, or leveraging advanced technologies for efficient business processes, we're committed to delivering exceptional results.
+                        </p>
+                        <p class="text-sm md:text-base">
+                            Our expertise in selecting the most suitable platforms ensures that businesses can thrive in the ever-evolving digital landscape, making us a trusted partner for achieving digital excellence.
+                        </p>
                     </div>
                 </div>
 
-                <!-- QUICK LINKS -->
-                <div class="w-full md:w-1/5">
-                    <!-- Mobile Quick Links -->
-                    <div x-data="{ expanded: false }" class="py-2 px-4 relative md:hidden border rounded-md" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="faqs-text-02" :class="expanded ? 'bg-gray-900 border-sky-500' : 'bg-gray-800 border-gray-600'">
-                        <h2 class="text-2xl font-bold">
-                            <button id="faqs-title-02" type="button" class="flex items-center justify-between w-full text-left font-semibold py-2 text-sm">
-                                Quick Links
-                                <svg class="fill-white shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
-                                    <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
-                                </svg>                                
-                            </button>
-                        </h2>
-                        <div id="faqs-text-02" role="region" aria-labelledby="faqs-title-02" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
-                            <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
-                                <a href="" class="text-xs">About Us</a>
-                                <a href="" class="text-xs">Partners</a>
-                                <a href="" class="text-xs">Terms & Conditions</a>
-                                <a href="" class="text-xs">Contact Us</a>
+                <!-- Services Cards -->
+                <div class="grid gap-4">
+                    <div class="group bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-700/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700/50">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-sky-500 p-3 rounded-lg group-hover:bg-sky-400 transition-colors">
+                                <img class="w-6 h-6" src="/img/icons/web.svg" alt="Web Development">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white mb-1">Web Development</h3>
+                                <p class="text-gray-400 text-sm">Modern, responsive web solutions</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Mobile Quick Links -->
-
-                    <!-- Breakpoint Quick Links -->
-                    <div class="hidden md:flex flex-col gap-5">
-                        <h5 class="text-2xl font-bold">Quick Links</h5>
-                        <a href="" class="text-sm">About Us</a>
-                        <a href="" class="text-sm">Partners</a>
-                        <a href="" class="text-sm">Terms & Conditions</a>
-                        <a href="" class="text-sm">Contact Us</a>
-                    </div>
-                    <!-- Breakpoint Quick Links -->
-                </div>
-                <!-- QUICK LINKS -->
-
-                <!-- SERVICES -->
-                <div class="w-full md:w-1/5">
-                    <!-- Mobile Services -->
-                    <div x-data="{ expanded: false }" class="py-2 px-4 relative md:hidden border rounded-md" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="faqs-text-03" :class="expanded ? 'bg-gray-900 border-sky-500' : 'bg-gray-800 border-gray-600'">
-                        <h2 class="text-2xl font-bold">
-                            <button id="faqs-title-02" type="button" class="flex items-center justify-between w-full text-left font-semibold py-2 text-sm">
-                                Services
-                                <svg class="fill-white shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
-                                    <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
-                                </svg>                                
-                            </button>
-                        </h2>
-                        <div id="faqs-text-03" role="region" aria-labelledby="faqs-title-03" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
-                            <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
-                                <a href="" class="text-xs">Project-based</a>
-                                <a href="" class="text-xs">Managed Service</a>
-                                <a href="" class="text-xs">Engineering</a>
+                    
+                    <div class="group bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-700/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700/50">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-sky-500 p-3 rounded-lg group-hover:bg-sky-400 transition-colors">
+                                <img class="w-6 h-6" src="/img/icons/mobile.svg" alt="Mobile Apps">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white mb-1">Mobile Apps Development</h3>
+                                <p class="text-gray-400 text-sm">Native & cross-platform apps</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Mobile Services -->
-
-                    <!-- Breakpoint Services -->
-                    <div class="hidden md:flex flex-col gap-5">
-                        <h5 class="text-2xl font-bold">Services</h5>
-                        <a href="" class="text-sm">Project-based</a>
-                        <a href="" class="text-sm">Managed Service</a>
-                        <a href="" class="text-sm">Engineering</a>
-                    </div>
-                    <!-- Breakpoint Services -->
-                </div>
-                <!-- SERVICES -->
-
-                <!-- SOLUTIONS -->
-                <div class="w-full md:w-1/5">
-                    <!-- Mobile Solutions -->
-                    <div x-data="{ expanded: false }" class="py-2 px-4 relative md:hidden border rounded-md" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="faqs-text-04" :class="expanded ? 'bg-gray-900 border-sky-500' : 'bg-gray-800 border-gray-600'">
-                        <h2 class="text-2xl font-bold">
-                            <button id="faqs-title-02" type="button" class="flex items-center justify-between w-full text-left font-semibold py-2 text-sm">
-                                Solutions
-                                <svg class="fill-white shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
-                                    <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
-                                </svg>                                
-                            </button>
-                        </h2>
-                        <div id="faqs-text-04" role="region" aria-labelledby="faqs-title-04" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
-                            <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
-                                <a href="" class="text-xs">Web Development</a>
-                                <a href="" class="text-xs">Mobile Apps Development</a>
-                                <a href="" class="text-xs">IoT Engineering</a>
-                                <a href="" class="text-xs">Maintenance</a>
-                                <a href="" class="text-xs">Engineering</a>
+                    
+                    <div class="group bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-700/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700/50">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-sky-500 p-3 rounded-lg group-hover:bg-sky-400 transition-colors">
+                                <img class="w-6 h-6" src="/img/icons/iot.svg" alt="IoT Engineering">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white mb-1">IoT Engineering</h3>
+                                <p class="text-gray-400 text-sm">Smart connected solutions</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Mobile Solutions -->
-
-                    <!-- Breakpoint Solutions -->
-                    <div class="hidden md:flex flex-col gap-5">
-                        <h5 class="text-2xl font-bold">Solutions</h5>
-                        <a href="" class="text-sm">Web Development</a>
-                        <a href="" class="text-sm">Mobile Apps Development</a>
-                        <a href="" class="text-sm">IoT Engineering</a>
-                        <a href="" class="text-sm">Maintenance</a>
-                        <a href="" class="text-sm">Engineering</a>
+                    
+                    <div class="group bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-700/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700/50">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-sky-500 p-3 rounded-lg group-hover:bg-sky-400 transition-colors">
+                                <img class="w-6 h-6" src="/img/icons/maintenance.svg" alt="Maintenance">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white mb-1">System Maintenance</h3>
+                                <p class="text-gray-400 text-sm">Ongoing support & updates</p>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Breakpoint Solutions -->
+                    
+                    <div class="group bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-700/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700/50">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-sky-500 p-3 rounded-lg group-hover:bg-sky-400 transition-colors">
+                                <img class="w-6 h-6" src="/img/icons/engineering.svg" alt="Engineering">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white mb-1">Software Engineering</h3>
+                                <p class="text-gray-400 text-sm">Enterprise-grade solutions</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- SOLUTIONS -->
             </div>
-            <hr class="border-1 border-white">
-            <small class="text-xs text-white font-semibold">Copyrights 2024 &copy; BTEKLabs</small>
-        </div>
-        <!-- FOOTER SECTION -->
+        </section>
+
+        <!-- Innovations Section -->
+        <section id="innovations" class="bg-gradient-to-br from-stone-50 to-gray-100 py-16 lg:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 px-6 md:px-12 lg:px-16 min-h-screen items-center">
+                <!-- Content -->
+                <div class="space-y-8">
+                    <div class="flex items-center mb-8">
+                        <span class="text-sm md:text-base font-bold uppercase tracking-widest text-sky-600">innovations</span>
+                        <div class="flex-1 ml-6">
+                            <div class="h-px bg-gradient-to-r from-sky-500 to-transparent"></div>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
+                        Your Digital Journey<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600">Starts Here</span>
+                    </h2>
+                    
+                    <div class="space-y-4 text-gray-700 leading-relaxed">
+                        <p class="text-sm md:text-base">
+                            We specialize in a diverse range of fields, including Warehouse Management Systems (WMS), Point of Sales (POS) solutions, and comprehensive Information Systems.
+                        </p>
+                        <p class="text-sm md:text-base">
+                            Our expertise lies in creating tailored software solutions that optimize warehouse operations, provide efficient inventory tracking, and deliver robust data management capabilities with advanced analysis and reporting features.
+                        </p>
+                        <p class="text-sm md:text-base font-semibold text-sky-700">
+                            With a strong track record in these specialized areas, we are your most trusted partner for business solutions that drive operational excellence.
+                        </p>
+                    </div>
+                    
+                    <div class="flex gap-4 pt-4">
+                        <button class="carousel-btn bg-sky-500 hover:bg-sky-600 p-4 rounded-full text-white transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl" data-direction="prev">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button class="carousel-btn bg-sky-500 hover:bg-sky-600 p-4 rounded-full text-white transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl" data-direction="next">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Innovations Carousel -->
+                <div class="carousel-container relative overflow-hidden rounded-2xl shadow-2xl">
+                    <div class="carousel-track flex transition-transform duration-500 ease-in-out">
+                        <div class="carousel-slide w-full flex-shrink-0 relative min-h-[400px] bg-[url('/img/innovations-1.png')] bg-cover bg-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-8">
+                                <div class="bg-black/50 backdrop-blur-sm rounded-lg p-6">
+                                    <div class="flex items-center mb-3">
+                                        <span class="text-sky-300 font-bold uppercase tracking-widest text-sm">web development</span>
+                                        <div class="flex-1 ml-4">
+                                            <div class="h-px bg-gradient-to-r from-sky-300 to-transparent"></div>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">
+                                        Integrated Warehouse Management System
+                                    </h3>
+                                    <p class="text-gray-300 text-sm mt-2">
+                                        Comprehensive WMS solution for optimized inventory control
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide w-full flex-shrink-0 relative min-h-[400px] bg-[url('/img/innovations-2.png')] bg-cover bg-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-8">
+                                <div class="bg-black/50 backdrop-blur-sm rounded-lg p-6">
+                                    <div class="flex items-center mb-3">
+                                        <span class="text-sky-300 font-bold uppercase tracking-widest text-sm">mobile apps</span>
+                                        <div class="flex-1 ml-4">
+                                            <div class="h-px bg-gradient-to-r from-sky-300 to-transparent"></div>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">
+                                        Point of Sales Application
+                                    </h3>
+                                    <p class="text-gray-300 text-sm mt-2">
+                                        Modern POS system for streamlined retail operations
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carousel Indicators -->
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                        <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors" data-slide="0"></button>
+                        <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors" data-slide="1"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="relative bg-gradient-to-br from-sky-600 via-sky-500 to-blue-600 overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0">
+                <div class="absolute top-20 left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-10 right-20 w-32 h-32 bg-blue-400/20 rounded-full blur-2xl"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+            </div>
+            
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 px-6 md:px-12 lg:px-16 py-16 lg:py-24 text-white">
+                <div class="space-y-6">
+                    <div class="flex items-center mb-8">
+                        <span class="text-sm md:text-base font-bold uppercase tracking-widest text-sky-100">connect with us</span>
+                        <div class="flex-1 ml-6">
+                            <div class="h-px bg-gradient-to-r from-white/50 to-transparent"></div>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                        Empowering your business with 
+                        <span class="text-sky-200">innovative software solutions</span>
+                    </h2>
+                    
+                    <div class="flex gap-4 pt-4">
+                        <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                        <div class="w-2 h-2 bg-white rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
+                        <div class="w-2 h-2 bg-white rounded-full animate-pulse" style="animation-delay: 1s"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <p class="text-sky-50 leading-relaxed text-base md:text-lg">
+                        We help businesses improve their operations, increase efficiency, and reach new customers through custom software solutions tailored to meet specific client needs.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a class="group bg-white text-sky-600 hover:bg-sky-50 py-4 px-8 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center" href="#contact">
+                            <span class="flex items-center justify-center gap-2">
+                                Start Your Project
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </span>
+                        </a>
+                        <a class="border-2 border-white text-white hover:bg-white hover:text-sky-600 py-4 px-8 font-semibold rounded-lg transition-all duration-300 text-center" href="#about">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <Footer />
     </main>
-    <!-- <script src="/scripts/script.js"></script> -->
-</body>
-</html>
+</Layout>
+
+<style>
+    @keyframes slideClients {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    
+    .clients-slider {
+        animation: slideClients 30s linear infinite;
+        width: 200%;
+    }
+    
+    .clients-container:hover .clients-slider {
+        animation-play-state: paused;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #f8fafc;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #0ea5e9, #0284c7);
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #0284c7, #0369a1);
+    }
+    
+    .carousel-indicator.active {
+        background-color: white;
+        transform: scale(1.2);
+    }
+    
+    .loading {
+        opacity: 0.7;
+        pointer-events: none;
+    }
+    
+    .focus-visible:focus {
+        outline: 2px solid #0ea5e9;
+        outline-offset: 2px;
+    }
+    
+    @media (max-width: 640px) {
+        .text-responsive {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+        }
+    }
+    
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .btn-primary {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+    }
+    
+    .btn-primary:hover::before {
+        left: 100%;
+    }
+</style>
