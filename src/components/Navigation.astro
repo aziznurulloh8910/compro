@@ -2,7 +2,7 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="fixed top-0 flex justify-between items-center bg-transparent w-full z-20 px-4 py-6 md:px-14 md:py-4" id="nav">
+<nav class="fixed top-0 flex justify-between items-center w-full z-20 px-4 py-6 md:px-14 md:py-4 transition-all duration-300" id="nav">
     <a href="/index.html" class="flex">
         <img src="/img/icons/logo-circle.svg" class="w-[48px] md:w-12 mr-2">
         <span class="text-[10px] md:text-xs font-bold text-white">BANDUNG<br>SEMESTA<br>TEKNOLOGI</span>
@@ -31,38 +31,38 @@ const currentPath = Astro.url.pathname;
         </a>
         
         <div class="service-dropdown text-white font-medium text-sm relative">
-            <button class="dropdown-toggle flex items-center gap-2 cursor-pointer rounded hover:text-sky-300 transition-colors" type="button">
-                <span>SERVICES</span>
-                <svg class="w-3 h-3 transition-transform duration-200 dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <title>chevron-down</title>
-                    <g fill="none">
-                    <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </g>
-                </svg>
+            <button class="dropdown-toggle flex items-center gap-2 rounded hover:text-sky-300 transition-colors" type="button">
+            <span>SERVICES</span>
+            <svg class="w-3 h-3 transition-transform duration-200 dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>chevron-down</title>
+                <g fill="none">
+                <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </svg>
             </button>
-            <div class="dropdown-menu cursor-pointer absolute hidden bg-gray-900 text-white font-medium text-sm rounded-b-lg w-48 top-full left-0 shadow-xl">
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Project-based</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Managed Service</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Engineering</a>
+            <div class="dropdown-menu absolute hidden bg-gray-800 text-white font-medium text-sm rounded-b-lg w-48 top-full left-0 shadow-lg">
+            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Project-based</a>
+            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Managed Service</a>
+            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Engineering</a>
             </div>
         </div>
 
         <div class="service-dropdown text-white font-medium text-sm relative">
-            <button class="dropdown-toggle flex items-center gap-2 cursor-pointer rounded hover:text-sky-300 transition-colors" type="button">
-                <span>SOLUTIONS</span>
-                <svg class="w-3 h-3 transition-transform duration-200 dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <title>chevron-down</title>
-                    <g fill="none">
-                    <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </g>
-                </svg>
+            <button class="dropdown-toggle flex items-center gap-2 rounded hover:text-sky-300 transition-colors" type="button">
+            <span>SOLUTIONS</span>
+            <svg class="w-3 h-3 transition-transform duration-200 dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>chevron-down</title>
+                <g fill="none">
+                <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </svg>
             </button>
-            <div class="dropdown-menu cursor-pointer absolute hidden bg-gray-900 text-white font-medium text-sm rounded-b-lg pb-2 w-48 top-full left-0 shadow-xl">
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Web Development</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Mobile Apps Development</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">IoT Engineering</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Maintenance</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Engineering</a>
+            <div class="dropdown-menu absolute hidden bg-gray-800 text-white font-medium text-sm rounded-b-lg pb-2 w-48 top-full left-0 shadow-lg">
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Web Development</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Mobile Apps Development</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">IoT Engineering</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Maintenance</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Engineering</a>
             </div>
         </div>
 
@@ -208,10 +208,45 @@ const currentPath = Astro.url.pathname;
             };
         }
         
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initDropdowns);
-        } else {
+        function initScrollEffect() {
+            var nav = document.getElementById('nav');
+            if (!nav) return;
+            
+            function updateNavBackground() {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 50) {
+                    nav.style.background = 'linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0))';
+                } else {
+                    nav.style.background = 'transparent';
+                }
+            }
+            
+            updateNavBackground();
+            
+            var ticking = false;
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateNavBackground);
+                    ticking = true;
+                    setTimeout(function() {
+                        ticking = false;
+                    }, 16);
+                }
+            }
+            
+            window.addEventListener('scroll', requestTick);
+        }
+        
+        function init() {
             initDropdowns();
+            initScrollEffect();
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
         }
     })();
 </script>
