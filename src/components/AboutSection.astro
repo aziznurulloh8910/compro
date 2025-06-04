@@ -1,3 +1,8 @@
+---
+// Import komponen React carousel
+import ClientCarousel from '../components/ClientCarousel';
+---
+
 <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen text-slate-950" id="about">
     <div class="hidden md:flex py-8 flex-col justify-end bg-[url('/img/crafting.png')] bg-no-repeat bg-cover h-full"></div>
 
@@ -16,56 +21,12 @@
         </div>
 
         <!-- subtitle wrapper -->
-        <div class="subtitle-wrapper w-full flex justify-center items-center mb-8">
+        <div class="subtitle-wrapper w-full flex justify-center items-center mb-4">
             <span class="text-sm md:text-lg font-bold uppercase tracking-widest text-gray-400 w-full">featured clients</span>
             <hr class="border-1 border-gray-400 w-3/5 md:w-full ml-8">
         </div>
         <!-- subtitle wrapper -->
         
-        <!-- Clients Slider -->
-        <div class="relative overflow-hidden h-15">
-            <div class="flex animate-scroll items-center">
-                <!-- First set of logos -->
-                <div class="flex space-x-6 md:space-x-8 items-center flex-shrink-0 min-w-full">
-                    <img src="/img/logo-clients/aun.png" alt="Sun Client Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/bizbridge.png" alt="BP Bridge Corp Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/btn-logo.png" alt="BMI Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/calpadia.png" alt="Taipai Daising Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/daisho.png" alt="Dashoping Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/easy-rent.png" alt="CJP Path Group Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/hairnerds.png" alt="Nameri Dising Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/hanoman-logo.png" alt="Handout Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/hello-work.png" alt="Hello Work Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/ilc.png" alt="Licing Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/jfe.png" alt="Fixing Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/piston.png" alt="Piston Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/pompa-bandung.png" alt="Pompa Bandung Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/rooftop-coffee.png" alt="Rooftop Coffee Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/sealhonpo.png" alt="Seathepong Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/sidz.png" alt="SIZG Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/siix.png" alt="Six Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/toyotomo.png" alt="Toyotemong Logo" class="h-12 object-contain">
-                </div>
-            </div>
-        </div>
+        <ClientCarousel client:load />
     </div>
 </div>
-
-<style>
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.animate-scroll {
-    animation: scroll 20s linear infinite;
-}
-
-.animate-scroll:hover {
-    animation-play-state: paused;
-}
-</style>
