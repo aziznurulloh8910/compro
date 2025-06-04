@@ -1,0 +1,137 @@
+<div class="bg-gray-800 px-4 md:px-14 pt-16 pb-8 flex flex-col gap-8">
+    <div class="flex flex-col md:flex-row gap-8 md:gap-16 text-white">
+        <div class="addres-wrapper flex flex-col w-full md:w-2/5 gap-5 text-[12px] md:text-sm ">
+            <a href="/index.html" class="flex">
+                <img src="/img/icons/logo-circle.svg" class="w-[48px] md:w-12 mr-2">
+                <span class="text-[10px] md:text-xs font-bold text-white">BANDUNG<br>SEMESTA<br>TEKNOLOGI</span>
+            </a>
+            <span class="leading-normal">For more information, you can visit our store or get in touch through our contacts below:</span>
+            <div class="info-wrapper flex gap-2 items-center">
+                <img class="w-[20px] md:w-[24px]" src="/img/icons/location.svg" alt="">
+                <span class="">Jl. Nata Kusumah VII, RT.01/RW.07, Kabupaten Bandung, Jawa Barat 40225</span>
+            </div>
+            <div class="info-wrapper flex gap-2 items-center">
+                <img class="w-[20px] md:w-[24px]" src="/img/icons/website.svg" alt="">
+                <a href="" class="">bteklabs.com</a>
+            </div>
+            <div class="info-wrapper flex gap-2 items-center">
+                <img class="w-[20px] md:w-[24px]" src="/img/icons/mail.svg" alt="">
+                <span class="">support@bteklabs.com</span>
+            </div>
+            <div class="info-wrapper flex gap-2 items-center">
+                <img class="w-[20px] md:w-[24px]" src="/img/icons/mail.svg" alt="">
+                <span class="">marketing@bteklabs.com</span>
+            </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="w-full md:w-1/5">
+            <!-- Mobile Quick Links -->
+            <div x-data="{ expanded: false }" class="py-2 px-4 relative md:hidden border rounded-md" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="faqs-text-02" :class="expanded ? 'bg-gray-900 border-sky-500' : 'bg-gray-800 border-gray-600'">
+                <h2 class="text-2xl font-bold">
+                    <button id="faqs-title-02" type="button" class="flex items-center justify-between w-full text-left font-semibold py-2 text-sm">
+                        Quick Links
+                        <svg class="fill-white shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                        </svg>                                
+                    </button>
+                </h2>
+                <div id="faqs-text-02" role="region" aria-labelledby="faqs-title-02" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
+                    <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
+                        <a href="" class="text-xs">About Us</a>
+                        <a href="" class="text-xs">Partners</a>
+                        <a href="" class="text-xs">Terms & Conditions</a>
+                        <a href="" class="text-xs">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Quick Links -->
+
+            <!-- Breakpoint Quick Links -->
+            <div class="hidden md:flex flex-col gap-5">
+                <h5 class="text-2xl font-bold">Quick Links</h5>
+                <a href="" class="text-sm">About Us</a>
+                <a href="" class="text-sm">Partners</a>
+                <a href="" class="text-sm">Terms & Conditions</a>
+                <a href="" class="text-sm">Contact Us</a>
+            </div>
+            <!-- Breakpoint Quick Links -->
+        </div>
+        <!-- QUICK LINKS -->
+
+        <!-- SERVICES -->
+        <div class="w-full md:w-1/5">
+            <!-- Mobile Services -->
+            <div x-data="{ expanded: false }" class="py-2 px-4 relative md:hidden border rounded-md" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="faqs-text-03" :class="expanded ? 'bg-gray-900 border-sky-500' : 'bg-gray-800 border-gray-600'">
+                <h2 class="text-2xl font-bold">
+                    <button id="faqs-title-02" type="button" class="flex items-center justify-between w-full text-left font-semibold py-2 text-sm">
+                        Services
+                        <svg class="fill-white shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                        </svg>                                
+                    </button>
+                </h2>
+                <div id="faqs-text-03" role="region" aria-labelledby="faqs-title-03" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
+                    <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
+                        <a href="" class="text-xs">Project-based</a>
+                        <a href="" class="text-xs">Managed Service</a>
+                        <a href="" class="text-xs">Engineering</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Services -->
+
+            <!-- Breakpoint Services -->
+            <div class="hidden md:flex flex-col gap-5">
+                <h5 class="text-2xl font-bold">Services</h5>
+                <a href="" class="text-sm">Project-based</a>
+                <a href="" class="text-sm">Managed Service</a>
+                <a href="" class="text-sm">Engineering</a>
+            </div>
+            <!-- Breakpoint Services -->
+        </div>
+        <!-- SERVICES -->
+
+        <!-- SOLUTIONS -->
+        <div class="w-full md:w-1/5">
+            <!-- Mobile Solutions -->
+            <div x-data="{ expanded: false }" class="py-2 px-4 relative md:hidden border rounded-md" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="faqs-text-04" :class="expanded ? 'bg-gray-900 border-sky-500' : 'bg-gray-800 border-gray-600'">
+                <h2 class="text-2xl font-bold">
+                    <button id="faqs-title-02" type="button" class="flex items-center justify-between w-full text-left font-semibold py-2 text-sm">
+                        Solutions
+                        <svg class="fill-white shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                        </svg>                                
+                    </button>
+                </h2>
+                <div id="faqs-text-04" role="region" aria-labelledby="faqs-title-04" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
+                    <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
+                        <a href="" class="text-xs">Web Development</a>
+                        <a href="" class="text-xs">Mobile Apps Development</a>
+                        <a href="" class="text-xs">IoT Engineering</a>
+                        <a href="" class="text-xs">Maintenance</a>
+                        <a href="" class="text-xs">Engineering</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Solutions -->
+
+            <!-- Breakpoint Solutions -->
+            <div class="hidden md:flex flex-col gap-5">
+                <h5 class="text-2xl font-bold">Solutions</h5>
+                <a href="" class="text-sm">Web Development</a>
+                <a href="" class="text-sm">Mobile Apps Development</a>
+                <a href="" class="text-sm">IoT Engineering</a>
+                <a href="" class="text-sm">Maintenance</a>
+                <a href="" class="text-sm">Engineering</a>
+            </div>
+            <!-- Breakpoint Solutions -->
+        </div>
+        <!-- SOLUTIONS -->
+    </div>
+    <hr class="border-1 border-white">
+    <small class="text-xs text-white font-semibold">Copyrights 2024 &copy; BTEKLabs</small>
+</div>

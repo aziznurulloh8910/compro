@@ -1,0 +1,119 @@
+<nav class="fixed top-0 flex justify-between items-center bg-transparent w-full z-20 px-4 py-6 md:px-14 md:py-4" id="nav">
+    <!-- Logo Link Wrapper -->
+    <a href="/index.html" class="flex">
+        <img src="/img/icons/logo-circle.svg" class="w-[48px] md:w-12 mr-2">
+        <span class="text-[10px] md:text-xs font-bold text-white">BANDUNG<br>SEMESTA<br>TEKNOLOGI</span>
+    </a>
+    <!-- Logo Link Wrapper -->
+
+    <!-- Center Nav Wrapper -->
+    <div class="hidden md:flex nav-links justify-center items-center gap-8">
+        <a class="text-sm text-white font-bold" href="">HOME</a>
+        <a class="text-sm text-white font-medium" href="">ABOUT US</a>
+        
+        <!-- SERVICE DROPDOWN -->
+        <div class="service-dropdown text-white font-medium text-sm">
+            <button class="dropdown-toggle flex items-center gap-2 rounded">
+            <span class="pointer-events-none">SERVICES</span>
+            <svg class="w-3 h-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>chevron-down</title>
+                <g fill="none">
+                <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </svg>
+            </button>
+            <div class="dropdown-menu absolute hidden bg-gray-800 text-white font-medium text-sm rounded-b-lg w-48">
+            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Project-based</a>
+            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Managed Service</a>
+            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Engineering</a>
+            </div>
+        </div>
+
+        <!-- SOLUTIONS DROPDOWN -->
+        <div class="service-dropdown text-white font-medium text-sm">
+            <button class="dropdown-toggle flex items-center gap-2 rounded">
+            <span class="pointer-events-none">SOLUTIONS</span>
+            <svg class="w-3 h-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>chevron-down</title>
+                <g fill="none">
+                <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </svg>
+            </button>
+            <div class="dropdown-menu absolute hidden bg-gray-800 text-white font-medium text-sm rounded-b-lg pb-2 w-48">
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Web Development</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Mobile Apps Development</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">IoT Engineering</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Maintenance</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900">Engineering</a>
+            </div>
+        </div>
+
+        <a class="text-sm text-white font-medium" href="">PARTNERS</a>
+    </div>
+    <!-- Center Nav Wrapper -->
+
+    <!-- Contact Button -->
+    <a class="hidden md:block border-2 border-white py-3 px-5 text-sm font-medium rounded-md text-white" href="">CONTACT US</a>
+    <!-- Contact Button -->
+
+    <!-- Mobile Nav -->
+    <div x-data="{ expanded: false }" class="md:hidden" :class="expanded ? 'absolute w-full top-0 right-0 z-20 bg-gray-800' : 'bg-transparent'">
+        <button @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="mobile-nav" :class="expanded ? 'relative my-8 mx-4 float-right z-30' : ''"><img src="/img/icons/hamburger.svg" alt="" class="w-[24px]"></button>
+        <div id="mobile-nav" :class="expanded ? 'mt-10 absolute flex flex-col gap-4 right-0 md:hidden w-screen h-screen py-6 bg-gray-800 text-white transform origin-center transition duration-400 ease-in-out' : 'hidden'">
+            <a class="text-sm text-white font-bold pl-4" href="">Home</a>
+            <a class="text-sm text-white font-medium pl-4" href="">About Us</a>
+            
+            <!-- SERVICE DROPDOWN -->
+            <div x-data="{ expanded: false }" class="relative px-4 transform origin-center transition duration-400 ease-in-out" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="link-service" :class="expanded ? 'bg-gray-900 py-2' : 'bg-gray-800'">
+                <h2 class="text-2xl font-bold">
+                    <button id="link-service-title" type="button" class="flex items-center justify-between w-full text-left font-medium text-sm" :class="{'py-2' : expanded}">
+                        Services
+                        <svg class="w-3 h-3 pointer-events-none fill-white shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>chevron-down</title>
+                            <g fill="none">
+                            <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform origin-center transition duration-400 ease-out" :class="{'!rotate-180': expanded}"></path>
+                            </g>
+                        </svg>                             
+                    </button>
+                </h2>
+                <div id="link-service" role="region" aria-labelledby="link-service-title" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
+                    <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
+                        <a href="" class="text-xs">Project-based</a>
+                        <a href="" class="text-xs">Managed Service</a>
+                        <a href="" class="text-xs">Engineering</a>
+                    </div>
+                </div>
+            </div>
+            <!-- SERVICE DROPDOWN -->
+            
+            <!-- SOLUTIONS DROPDOWN -->
+            <div x-data="{ expanded: false }" class="relative px-4 transform origin-center transition duration-400 ease-in-out" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="link-solutions" :class="expanded ? 'bg-gray-900 py-2' : 'bg-gray-800'">
+                <h2 class="text-2xl font-bold">
+                    <button id="link-solutions-title" type="button" class="flex items-center justify-between w-full text-left font-medium text-sm" :class="{'py-2' : expanded}">
+                        Solutions
+                        <svg class="w-3 h-3 pointer-events-none fill-white shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>chevron-down</title>
+                            <g fill="none">
+                            <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform origin-center transition duration-400 ease-out" :class="{'!rotate-180': expanded}"></path>
+                            </g>
+                        </svg>                             
+                    </button>
+                </h2>
+                <div id="link-solutions" role="region" aria-labelledby="link-solutions-title" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
+                    <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
+                        <a href="" class="text-xs">Web Development</a>
+                        <a href="" class="text-xs">Mobile Apps Development</a>
+                        <a href="" class="text-xs">IoT Engineering</a>
+                        <a href="" class="text-xs">Maintenance</a>
+                        <a href="" class="text-xs">Engineering</a>
+                    </div>
+                </div>
+            </div>
+            <!-- SOLUTIONS DROPDOWN -->
+
+            <a class="text-sm text-white font-medium pl-4" href="">Partners</a>                
+        </div>
+    </div>
+    <!-- Mobile Nav -->
+</nav>
