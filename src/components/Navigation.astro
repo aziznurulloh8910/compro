@@ -40,10 +40,10 @@ const currentPath = Astro.url.pathname;
                 </g>
             </svg>
             </button>
-            <div class="dropdown-menu absolute hidden bg-gray-800 text-white font-medium text-sm rounded-b-lg w-48 top-full left-0 shadow-lg">
-            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Project-based</a>
-            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Managed Service</a>
-            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Engineering</a>
+            <div class="dropdown-menu absolute hidden bg-gray-900 text-white font-medium text-sm rounded-b-lg w-48 top-full left-0 shadow-lg">
+            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Project-based</a>
+            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Managed Service</a>
+            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Engineering</a>
             </div>
         </div>
 
@@ -57,12 +57,12 @@ const currentPath = Astro.url.pathname;
                 </g>
             </svg>
             </button>
-            <div class="dropdown-menu absolute hidden bg-gray-800 text-white font-medium text-sm rounded-b-lg pb-2 w-48 top-full left-0 shadow-lg">
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Web Development</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Mobile Apps Development</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">IoT Engineering</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Maintenance</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-900 transition-colors">Engineering</a>
+            <div class="dropdown-menu absolute hidden bg-gray-900 text-white font-medium text-sm rounded-b-lg pb-2 w-48 top-full left-0 shadow-lg">
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Web Development</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Mobile Apps Development</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">IoT Engineering</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Maintenance</a>
+                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Engineering</a>
             </div>
         </div>
 
@@ -77,8 +77,8 @@ const currentPath = Astro.url.pathname;
             <a 
                 class={`text-sm font-bold pl-4 transition-colors ${
                     currentPath === '/' 
-                        ? 'text-sky-400 border-l-4 border-sky-400 bg-gray-700' 
-                        : 'text-white hover:text-sky-300'
+                        ? 'font-bold' 
+                        : 'hover:text-sky-300 font-medium'
                 }`} 
                 href="/"
             >
@@ -87,8 +87,8 @@ const currentPath = Astro.url.pathname;
             <a 
                 class={`text-sm font-medium pl-4 transition-colors ${
                     currentPath === '/AboutPage' 
-                        ? 'text-sky-400 border-l-4 border-sky-400 bg-gray-700' 
-                        : 'text-white hover:text-sky-300'
+                        ? 'font-bold' 
+                        : 'hover:text-sky-300 font-medium'
                 }`} 
                 href="/AboutPage"
             >
