@@ -5,7 +5,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../components/ui/carousel";
+} from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
 interface ClientLogo {
@@ -37,7 +37,10 @@ const clientLogos: ClientLogo[] = [
 
 export default function ClientsCarousel() {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ 
+      delay: 2000, 
+      stopOnInteraction: true
+    })
   );
 
   const chunkedLogos = clientLogos.reduce((chunks: ClientLogo[][], logo, index) => {
@@ -50,10 +53,14 @@ export default function ClientsCarousel() {
   }, []);
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full mx-auto">
       <Carousel
         plugins={[plugin.current]}
         className="w-full"
+        opts={{
+          align: "start",
+          loop: true as boolean,
+        }}
         onMouseEnter={() => plugin.current.stop()}
         onMouseLeave={() => plugin.current.reset()}
       >
@@ -69,7 +76,7 @@ export default function ClientsCarousel() {
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="h-15 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                      className="h-16 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                       title={logo.name}
                     />
                   </div>

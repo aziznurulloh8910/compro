@@ -1,3 +1,7 @@
+---
+import ClientCarousel from '../components/custom/ClientCarousel';
+---
+
 <div class="grid grid-cols-1 md:grid-cols-2 text-slate-950 gap-y-2 md:gap-y-8 bg-white">
     <!-- Header Section -->
     <div class="px-4 pt-8 md:py-8 md:pt-14 md:pl-14 order-1">
@@ -80,48 +84,8 @@
             <span class="text-xs md:text-sm text-gray-400 font-bold uppercase tracking-widest whitespace-nowrap">FEATURED CLIENTS</span>
             <hr class="border-1 border-gray-400 w-full ml-4">
         </div>
-        <div class="relative overflow-hidden h-15">
-            <div class="flex animate-scroll items-center">
-                <div class="flex space-x-6 md:space-x-8 items-center flex-shrink-0 min-w-full">
-                    <img src="/img/logo-clients/aun.png" alt="Sun Client Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/bizbridge.png" alt="BP Bridge Corp Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/btn-logo.png" alt="BMI Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/calpadia.png" alt="Taipai Daising Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/daisho.png" alt="Dashoping Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/easy-rent.png" alt="CJP Path Group Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/hairnerds.png" alt="Nameri Dising Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/hanoman-logo.png" alt="Handout Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/hello-work.png" alt="Hello Work Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/ilc.png" alt="Licing Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/jfe.png" alt="Fixing Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/piston.png" alt="Piston Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/pompa-bandung.png" alt="Pompa Bandung Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/rooftop-coffee.png" alt="Rooftop Coffee Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/sealhonpo.png" alt="Seathepong Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/sidz.png" alt="SIZG Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/siix.png" alt="Six Logo" class="h-12 object-contain">
-                    <img src="/img/logo-clients/toyotomo.png" alt="Toyotemong Logo" class="h-12 object-contain">
-                </div>
-            </div>
-        </div>
+        
+        <!-- Ganti dengan ClientCarousel -->
+        <ClientCarousel client:load />
     </div>
 </div>
-
-<style>
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.animate-scroll {
-    animation: scroll 20s linear infinite;
-}
-
-.animate-scroll:hover {
-    animation-play-state: paused;
-}
-</style>
