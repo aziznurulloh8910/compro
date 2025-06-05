@@ -1,3 +1,7 @@
+---
+import ClientProjectCarousel from "../components/custom/ClientProjectCarousel";
+---
+
 <div class="hidden md:grid grid-cols-1 md:grid-cols-2 text-slate-950 gap-y-2 md:gap-y-4 bg-white">
     <div class="px-4 pt-8 md:py-2 md:pt-14 md:pl-14 order-1">
         <div class="subtitle-wrapper w-full flex items-center">
@@ -114,13 +118,7 @@
                     <h4 class="font-bold text-lg">FMCG</h4>
                     <p class="text-sm text-gray-600">Previous client:</p>
                 </div>
-                <div class="flex gap-4 flex-1 justify-end">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                </div>
+                <ClientProjectCarousel client:load />
             </div>
             
             <div class="flex items-center justify-between">
@@ -128,13 +126,7 @@
                     <h4 class="font-bold text-lg">Finance</h4>
                     <p class="text-sm text-gray-600">Previous client:</p>
                 </div>
-                <div class="flex gap-4 flex-1 justify-end">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                </div>
+                <ClientProjectCarousel client:load />
             </div>
             
             <div class="flex items-center justify-between">
@@ -142,13 +134,7 @@
                     <h4 class="font-bold text-lg">Automotive</h4>
                     <p class="text-sm text-gray-600">Previous client:</p>
                 </div>
-                <div class="flex gap-4 flex-1 justify-end">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                </div>
+                <ClientProjectCarousel client:load />
             </div>
             
             <div class="flex items-center justify-between">
@@ -156,13 +142,7 @@
                     <h4 class="font-bold text-lg">Technology</h4>
                     <p class="text-sm text-gray-600">Previous client:</p>
                 </div>
-                <div class="flex gap-4 flex-1 justify-end">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                    <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-10">
-                </div>
+                <ClientProjectCarousel client:load />
             </div>
         </div>
     </div>
@@ -314,53 +294,33 @@
             </button>
             <div class="accordion-content hidden p-4" id="project-categories">
                 <div class="space-y-6">
-                    <div class="flex items-start justify-between">
-                        <div class="min-w-[80px]">
+                    <div class="flex items-center justify-between">
+                        <div class="min-w-[60px]">
                             <h4 class="font-bold text-base mb-1">FMCG</h4>
-                            <p class="text-sm text-gray-600">Previous client:</p>
+                            <p class="text-xs md:text-sm text-gray-600">Previous client:</p>
                         </div>
-                        <div class="flex gap-2 flex-wrap justify-end flex-1 ml-4">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                        </div>
+                        <ClientProjectCarousel client:load />
                     </div>
-                    <div class="flex items-start justify-between">
-                        <div class="min-w-[80px]">
+                    <div class="flex items-center justify-between">
+                        <div class="min-w-[60px]">
                             <h4 class="font-bold text-base mb-1">Finance</h4>
-                            <p class="text-sm text-gray-600">Previous client:</p>
+                            <p class="text-xs md:text-sm text-gray-600">Previous client:</p>
                         </div>
-                        <div class="flex gap-2 flex-wrap justify-end flex-1 ml-4">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                        </div>
+                        <ClientProjectCarousel client:load />
                     </div>
-                    <div class="flex items-start justify-between">
-                        <div class="min-w-[80px]">
+                    <div class="flex items-center justify-between">
+                        <div class="min-w-[60px]">
                             <h4 class="font-bold text-base mb-1">Automotive</h4>
-                            <p class="text-sm text-gray-600">Previous client:</p>
+                            <p class="text-xs md:text-sm text-gray-600">Previous client:</p>
                         </div>
-                        <div class="flex gap-2 flex-wrap justify-end flex-1 ml-4">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                        </div>
+                        <ClientProjectCarousel client:load />
                     </div>
-                    <div class="flex items-start justify-between">
-                        <div class="min-w-[80px]">
+                    <div class="flex items-center justify-between">
+                        <div class="min-w-[60px]">
                             <h4 class="font-bold text-base mb-1">Technology</h4>
-                            <p class="text-sm text-gray-600">Previous client:</p>
+                            <p class="text-xs md:text-sm text-gray-600">Previous client:</p>
                         </div>
-                        <div class="flex gap-2 flex-wrap justify-end flex-1 ml-4">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                            <img src="/img/logo-clients/aun.png" alt="AUN Logo" class="h-6">
-                        </div>
+                        <ClientProjectCarousel client:load />
                     </div>
                 </div>
             </div>
