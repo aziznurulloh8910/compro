@@ -41,9 +41,9 @@ const currentPath = Astro.url.pathname;
             </svg>
             </button>
             <div class="dropdown-menu absolute hidden bg-gray-900 text-white font-medium text-sm rounded-b-lg w-48 top-full left-0 shadow-lg">
-            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Project-based</a>
-            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Managed Service</a>
-            <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Engineering</a>
+            <a href="/services/ProjectBasedPage" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Project-based</a>
+            <a href="/services/ManagedServicePage" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Managed Service</a>
+            <a href="/services/EngineeringPage" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Engineering</a>
             </div>
         </div>
 
@@ -109,9 +109,9 @@ const currentPath = Astro.url.pathname;
                 </h2>
                 <div id="link-service" role="region" aria-labelledby="link-service-title" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
                     <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
-                        <a href="" class="text-xs hover:text-sky-300 transition-colors">Project-based</a>
-                        <a href="" class="text-xs hover:text-sky-300 transition-colors">Managed Service</a>
-                        <a href="" class="text-xs hover:text-sky-300 transition-colors">Engineering</a>
+                        <a href="/services/ProjectBasedPage" class="text-xs hover:text-sky-300 transition-colors">Project-based</a>
+                        <a href="/services/ManagedServicePage" class="text-xs hover:text-sky-300 transition-colors">Managed Service</a>
+                        <a href="/services/EngineeringPage" class="text-xs hover:text-sky-300 transition-colors">Engineering</a>
                     </div>
                 </div>
             </div>
