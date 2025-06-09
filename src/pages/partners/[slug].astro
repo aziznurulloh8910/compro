@@ -1,0 +1,463 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+
+const partners = [
+    {
+        id: 1,
+        slug: "pt-aun-wahana-jaya",
+        name: "PT. Aun Wahana Jaya",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit scelerisque augue et tincidunt. Integer ut hendrerit lorem. Pellentesque vel ipsum erat. Proin bibendum lorem vel placerat interdum. Vestibulum tempus dolor a interdum dictum. Proin diam purus, suscipit eget ent rutaecque, ullamcorper suscipit elit. Phasellus orci elit, tincidunt eu arcu eget, imperdiet commodo orci. Donec ac ultricies tortor, ac auctor velit. Phasellus sed elit sit amet tortor ullamcorper consectetur sit amet velit met. Donec non neque viverra, congue massa eu, accumsan eros. Maecenas auctor nisl et vehicula vehicula. Mauris consequat elit at arci posuere vulputate.",
+        logo: "/img/logo-clients/aun.png",
+        category: "FMCG",
+        categoryLabel: "Company Category",
+        established: "2020",
+        establishedLabel: "Partnership Start",
+        location: "Multinational",
+        locationLabel: "Company Location",
+        website: "https://example.com",
+        projectType: "Project-Based",
+        projectTypeLabel: "Project Type",
+        projectCount: "3 Projects",
+        projectCountLabel: "Finished Projects",
+        serviceType: "Web Development",
+        serviceTypeLabel: "Service Provided",
+        contact: {
+            website: "https://aun-wahana.com",
+            instagram: "https://instagram.com/aunwahana",
+            linkedin: "https://linkedin.com/company/aunwahana"
+        }
+    },
+    {
+        id: 2,
+        slug: "pt-aun-wahana-jaya-2",
+        name: "PT. Aun Wahana Jaya 2",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leading business solutions provider with extensive experience in various industries.",
+        logo: "/img/logo-clients/aun.png",
+        category: "Technology",
+        categoryLabel: "Company Category",
+        established: "2021",
+        establishedLabel: "Partnership Start",
+        location: "Indonesia",
+        locationLabel: "Company Location", 
+        website: "https://example.com",
+        projectType: "Long-term",
+        projectTypeLabel: "Project Type",
+        projectCount: "5 Projects",
+        projectCountLabel: "Finished Projects",
+        serviceType: "Software Development",
+        serviceTypeLabel: "Service Provided",
+        contact: {
+            website: "https://example.com",
+            instagram: "https://instagram.com/example",
+            linkedin: "https://linkedin.com/company/example"
+        }
+    },
+    {
+        id: 3,
+        slug: "pt-teknologi-maju",
+        name: "PT. Teknologi Maju",
+        description: "Leading technology solutions provider with cutting-edge innovations and comprehensive digital transformation services.",
+        logo: "/img/logo-clients/aun.png",
+        category: "Technology",
+        categoryLabel: "Company Category",
+        established: "2018",
+        establishedLabel: "Partnership Start",
+        location: "Surabaya, Indonesia",
+        locationLabel: "Company Location",
+        website: "https://example.com",
+        projectType: "Project-Based",
+        projectTypeLabel: "Project Type",
+        projectCount: "8 Projects",
+        projectCountLabel: "Finished Projects",
+        serviceType: "Mobile Development",
+        serviceTypeLabel: "Service Provided",
+        contact: {
+            website: "https://teknologi-maju.com",
+            instagram: "https://instagram.com/teknologimaju",
+            linkedin: "https://linkedin.com/company/teknologimaju"
+        }
+    },
+    {
+        id: 4,
+        slug: "pt-bisnis-global",
+        name: "PT. Bisnis Global",
+        description: "Global business consulting excellence with strategic insights and comprehensive market analysis for international expansion.",
+        logo: "/img/logo-clients/aun.png",
+        category: "Consulting",
+        categoryLabel: "Company Category",
+        established: "2012",
+        establishedLabel: "Partnership Start",
+        location: "Bali, Indonesia",
+        locationLabel: "Company Location",
+        website: "https://example.com",
+        projectType: "Retainer",
+        projectTypeLabel: "Project Type",
+        projectCount: "12 Projects",
+        projectCountLabel: "Finished Projects",
+        serviceType: "Business Consulting",
+        serviceTypeLabel: "Service Provided",
+        contact: {
+            website: "https://bisnis-global.com",
+            instagram: "https://instagram.com/bisnisglobal",
+            linkedin: "https://linkedin.com/company/bisnisglobal"
+        }
+    },
+    {
+        id: 5,
+        slug: "pt-aun-wahana-jaya-gaje",
+        name: "PT. Aun Wahana Jaya gaje",
+        description: "Strategic innovation consulting with focus on digital transformation and business process optimization.",
+        logo: "/img/logo-clients/aun.png",
+        category: "Innovation",
+        categoryLabel: "Company Category",
+        established: "2020",
+        establishedLabel: "Partnership Start",
+        location: "Medan, Indonesia",
+        locationLabel: "Company Location",
+        website: "https://example.com",
+        projectType: "Long-term",
+        projectTypeLabel: "Project Type",
+        projectCount: "6 Projects",
+        projectCountLabel: "Finished Projects",
+        serviceType: "Innovation Consulting",
+        serviceTypeLabel: "Service Provided",
+        contact: {
+            website: "https://example.com",
+            instagram: "https://instagram.com/example",
+            linkedin: "https://linkedin.com/company/example"
+        }
+    },
+    {
+        id: 6,
+        slug: "pt-solusi-digital",
+        name: "PT. Solusi Digital",
+        description: "Digital transformation specialists providing comprehensive e-commerce solutions and data analytics services.",
+        logo: "/img/logo-clients/aun.png",
+        category: "Digital",
+        categoryLabel: "Company Category",
+        established: "2019",
+        establishedLabel: "Partnership Start",
+        location: "Yogyakarta, Indonesia",
+        locationLabel: "Company Location",
+        website: "https://example.com",
+        projectType: "Project-Based",
+        projectTypeLabel: "Project Type",
+        projectCount: "15 Projects",
+        projectCountLabel: "Finished Projects",
+        serviceType: "E-commerce Development",
+        serviceTypeLabel: "Service Provided",
+        contact: {
+            website: "https://solusi-digital.com",
+            instagram: "https://instagram.com/solusidigital",
+            linkedin: "https://linkedin.com/company/solusidigital"
+        }
+    },
+    {
+        id: 7,
+        slug: "pt-mitra-strategis",
+        name: "PT. Mitra Strategis",
+        description: "Strategic partnership development and business strategy consulting with comprehensive market analysis capabilities.",
+        logo: "/img/logo-clients/aun.png",
+        category: "Strategy",
+        categoryLabel: "Company Category",
+        established: "2016",
+        establishedLabel: "Partnership Start",
+        location: "Makassar, Indonesia",
+        locationLabel: "Company Location",
+        website: "https://example.com",
+        projectType: "Retainer",
+        projectTypeLabel: "Project Type",
+        projectCount: "20 Projects",
+        projectCountLabel: "Finished Projects",
+        serviceType: "Strategic Consulting",
+        serviceTypeLabel: "Service Provided",
+        contact: {
+            website: "https://mitra-strategis.com",
+            instagram: "https://instagram.com/mitrastrategis",
+            linkedin: "https://linkedin.com/company/mitrastrategis"
+        }
+    },
+    {
+        id: 8,
+        slug: "pt-inovasi-teknologi",
+        name: "PT. Inovasi Teknologi",
+        description: "Innovation in technology solutions with expertise in IoT, blockchain, and cybersecurity implementations.",
+        logo: "/img/logo-clients/aun.png",
+        category: "Technology",
+        categoryLabel: "Company Category",
+        established: "2021",
+        establishedLabel: "Partnership Start",
+        location: "Semarang, Indonesia",
+        locationLabel: "Company Location",
+        website: "https://example.com",
+        projectType: "Project-Based",
+        projectTypeLabel: "Project Type",
+        projectCount: "7 Projects",
+        projectCountLabel: "Finished Projects",
+        serviceType: "IoT Development",
+        serviceTypeLabel: "Service Provided",
+        contact: {
+            website: "https://inovasi-teknologi.com",
+            instagram: "https://instagram.com/inovasiteknologi",
+            linkedin: "https://linkedin.com/company/inovasiteknologi"
+        }
+    }
+];
+
+const { slug } = Astro.params;
+
+const partner = partners.find(p => p.slug === slug);
+
+if (!partner) {
+    return Astro.redirect('/404');
+}
+
+export async function getStaticPaths() {
+    const partners = [
+        { slug: "pt-aun-wahana-jaya" },
+        { slug: "pt-aun-wahana-jaya-2" },
+        { slug: "pt-teknologi-maju" },
+        { slug: "pt-bisnis-global" },
+        { slug: "pt-aun-wahana-jaya-gaje" },
+        { slug: "pt-solusi-digital" },
+        { slug: "pt-mitra-strategis" },
+        { slug: "pt-inovasi-teknologi" }
+    ];
+    
+    return partners.map(partner => ({
+        params: { slug: partner.slug }
+    }));
+}
+---
+
+<Layout title={`${partner.name} - Partners - Bandung Semesta Teknologi`}>
+    <Navigation />
+
+    <div class="pt-24 pb-8">
+        <div class="container mx-auto px-4 md:px-14">
+            <div class="flex items-center justify-between">
+                <div class="flex-1">
+                    <div class="subtitle-wrapper w-full flex items-center mb-4">
+                        <span class="text-sm md:text-md text-sky-400 font-semibold uppercase tracking-widest whitespace-nowrap">Our Partner</span>
+                        <hr class="border-1 border-sky-500 w-1/2 ml-4">
+                    </div>
+                    <h1 class="font-bold text-4xl text-gray-900">{partner.name}</h1>
+                </div>
+                <div class="ml-8">
+                    <div class="w-40">
+                        <img src={partner.logo} alt="logo partner" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="min-h-screen pb-16">
+        <div class="container mx-auto px-4 md:px-14">
+            <div class="grid grid-cols-1 lg:grid-cols-4 max-w-7xl mx-auto">
+                
+                <div class="lg:col-span-1 border-b border-t border-l border-gray-200">
+                    <div class="bg-white overflow-hidden sticky top-4">
+                        <div class="p-6 space-y-2">
+                            <a href="#company-profile" class="block px-4 py-2 text-sky-500 bg-sky-50 rounded-md font-medium text-sm">
+                                Company Profile
+                            </a>
+                            <a href="#partnership-summary" class="block px-4 py-2 text-gray-600 hover:text-sky-500 hover:bg-gray-50 rounded-md font-medium text-sm transition-colors">
+                                Partnership Summary
+                            </a>
+                            <a href="#workflow" class="block px-4 py-2 text-gray-600 hover:text-sky-500 hover:bg-gray-50 rounded-md font-medium text-sm transition-colors">
+                                Workflow
+                            </a>
+                            <a href="#finished-projects" class="block px-4 py-2 text-gray-600 hover:text-sky-500 hover:bg-gray-50 rounded-md font-medium text-sm transition-colors">
+                                Finished Projects
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 space-y-8 border border-gray-200">
+                    <div id="company-profile" class="bg-white p-8">
+                        <h2 class="text-xl font-bold text-gray-900 mb-6">Company Profile</h2>
+                        <p class="text-gray-600 leading-relaxed text-justify mb-8">{partner.description}</p>
+                        
+                        <div>
+                            <p class="font-semibold text-gray-900 mb-4">Partner Contact:</p>
+                            <div class="flex gap-3">
+                                <a href={partner.contact.website} target="_blank" class="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center text-white hover:bg-sky-600 transition-colors">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                                <a href={partner.contact.instagram} target="_blank" class="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition-colors">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                </a>
+                                <a href={partner.contact.linkedin} target="_blank" class="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="partnership-summary" class="bg-white p-8">
+                        <h2 class="text-xl font-bold text-gray-900 mb-8">Partnership Summary</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            
+                            <div class="space-y-8">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500 mb-1">{partner.categoryLabel}</p>
+                                        <p class="font-semibold text-gray-900">{partner.category}</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500 mb-1">{partner.projectCountLabel}</p>
+                                        <p class="font-semibold text-gray-900">{partner.projectCount}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-8">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500 mb-1">{partner.locationLabel}</p>
+                                        <p class="font-semibold text-gray-900">{partner.location}</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500 mb-1">{partner.establishedLabel}</p>
+                                        <p class="font-semibold text-gray-900">{partner.established}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-8">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v6a2 2 0 002 2h2m0 0h2m-2 0v4l3-3-3-3z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500 mb-1">{partner.projectTypeLabel}</p>
+                                        <p class="font-semibold text-gray-900">{partner.projectType}</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500 mb-1">{partner.serviceTypeLabel}</p>
+                                        <p class="font-semibold text-gray-900">{partner.serviceType}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="workflow" class="p-8">
+                        <h2 class="text-xl font-bold text-gray-900 mb-6">Workflow</h2>
+                        <p class="text-gray-600">Workflow content will be added here...</p>
+                    </div>
+
+                    <div id="finished-projects" class="p-8">
+                        <h2 class="text-xl font-bold text-gray-900 mb-6">Finished Projects</h2>
+                        <p class="text-gray-600">Project showcase will be added here...</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <Footer />
+</Layout>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarLinks = document.querySelectorAll('a[href^="#"]');
+    
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                sidebarLinks.forEach(l => {
+                    l.classList.remove('text-sky-500', 'bg-sky-50');
+                    l.classList.add('text-gray-600');
+                });
+                this.classList.add('text-sky-500', 'bg-sky-50');
+                this.classList.remove('text-gray-600');
+            }
+        });
+    });
+
+    const sections = document.querySelectorAll('[id]') as NodeListOf<HTMLElement>;
+    const navItems = document.querySelectorAll('a[href^="#"]');
+
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id') as string;
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('text-sky-500', 'bg-sky-50');
+            item.classList.add('text-gray-600');
+            if (item.getAttribute('href') === '#' + current) {
+                item.classList.add('text-sky-500', 'bg-sky-50');
+                item.classList.remove('text-gray-600');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+});
+</script>

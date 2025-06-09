@@ -2,50 +2,58 @@
 const partners = [
     {
         id: 1,
+        slug: "pt-aun-wahana-jaya",
         name: "PT. Aun Wahana Jaya",
         description: "PT. Aun Wahana Jaya is a multinational company who...",
         logo: "/img/logo-clients/aun.png"
     },
     {
         id: 2,
+        slug: "pt-aun-wahana-jaya-2",
         name: "PT. Aun Wahana Jaya",
         description: "PT. Aun Wahana Jaya is a multinational company who...",
         logo: "/img/logo-clients/aun.png"
     },
     {
         id: 3,
-        name: "PT. Aun Wahana Jaya",
-        description: "PT. Aun Wahana Jaya is a multinational company who...",
+        slug: "pt-teknologi-maju",
+        name: "PT. Teknologi Maju",
+        description: "Leading technology solutions provider...",
         logo: "/img/logo-clients/aun.png"
     },
     {
         id: 4,
-        name: "PT. Aun Wahana Jaya",
-        description: "PT. Aun Wahana Jaya is a multinational company who...",
+        slug: "pt-bisnis-global",
+        name: "PT. Bisnis Global",
+        description: "Global business consulting excellence...",
         logo: "/img/logo-clients/aun.png"
     },
     {
         id: 5,
+        slug: "pt-aun-wahana-jaya-gaje",
         name: "PT. Aun Wahana Jaya gaje",
         description: "PT. Aun Wahana Jaya is a multinational company who...",
         logo: "/img/logo-clients/aun.png"
     },
     {
         id: 6,
-        name: "PT. Aun Wahana Jaya",
-        description: "PT. Aun Wahana Jaya is a multinational company who...",
+        slug: "pt-solusi-digital",
+        name: "PT. Solusi Digital",
+        description: "Digital transformation specialists...",
         logo: "/img/logo-clients/aun.png"
     },
     {
         id: 7,
-        name: "PT. Aun Wahana Jaya",
-        description: "PT. Aun Wahana Jaya is a multinational company who...",
+        slug: "pt-mitra-strategis",
+        name: "PT. Mitra Strategis",
+        description: "Strategic partnership excellence...",
         logo: "/img/logo-clients/aun.png"
     },
     {
         id: 8,
-        name: "PT. Aun Wahana Jaya",
-        description: "PT. Aun Wahana Jaya is a multinational company who...",
+        slug: "pt-inovasi-teknologi",
+        name: "PT. Inovasi Teknologi",
+        description: "Innovation in technology solutions...",
         logo: "/img/logo-clients/aun.png"
     }
 ];
@@ -107,9 +115,9 @@ const categories = [
                     <h3 class="font-bold text-lg text-slate-950 mb-2 text-center">{partner.name}</h3>
                     <p class="text-sm text-slate-600 mb-4 text-center leading-relaxed">{partner.description}</p>
                     <div class="text-center">
-                        <button class="px-4 py-2 bg-sky-500 text-white text-sm font-semibold rounded hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-colors">
+                        <a href={`/partners/${partner.slug}`} class="inline-block px-4 py-2 bg-sky-500 text-white text-sm font-semibold rounded hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-colors">
                             Read More
-                        </button>
+                        </a>
                     </div>
                 </div>
             ))}
@@ -195,9 +203,9 @@ const categories = [
                 <h3 class="font-bold text-sm text-slate-950 mb-2 leading-tight">{partner.name}</h3>
                 <p class="text-xs text-slate-600 mb-3 leading-relaxed line-clamp-3">{partner.description}</p>
                 <div class="text-left">
-                    <button class="px-3 py-1.5 bg-sky-500 text-white text-xs font-semibold rounded hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-1 transition-colors">
+                    <a href={`/partners/${partner.slug}`} class="inline-block px-3 py-1.5 bg-sky-500 text-white text-xs font-semibold rounded hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-1 transition-colors">
                         Read More
-                    </button>
+                    </a>
                 </div>
             </div>
         ))}
