@@ -8,7 +8,6 @@ const whiteBackgroundPages = [
     '/solutions/IotEngineeringPage',
     '/solutions/MaintenancePage',
     '/solutions/EngineeringPage',
-    '/PartnersPage', 
     '/TermsPage',
     '/PrivacyPage'
 ];
@@ -84,7 +83,7 @@ const isWhiteBackgroundPage = whiteBackgroundPages.includes(currentPath);
             </div>
         </div>
 
-        <a class={`text-sm font-medium transition-colors ${isWhiteBackgroundPage ? 'text-gray-900 hover:text-sky-500' : 'text-white hover:text-sky-300'}`} href="">PARTNERS</a>
+        <a class={`text-sm font-medium transition-colors ${isWhiteBackgroundPage ? 'text-gray-900 hover:text-sky-500' : 'text-white hover:text-sky-300'}`} href="/PartnersPage">PARTNERS</a>
     </div>
 
     <a class={`hidden md:block border-2 py-3 px-5 text-sm font-medium rounded-md transition-colors ${
