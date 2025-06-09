@@ -3,8 +3,12 @@ const currentPath = Astro.url.pathname;
 
 const whiteBackgroundPages = [
     '/ContactPage',
+    '/solutions/WebDevelopmentPage',
+    '/solutions/MobileAppsPage',
+    '/solutions/IotEngineeringPage',
+    '/solutions/MaintenancePage',
+    '/solutions/EngineeringPage',
     '/PartnersPage', 
-    '/SolutionsPage',
     '/TermsPage',
     '/PrivacyPage'
 ];
@@ -72,11 +76,11 @@ const isWhiteBackgroundPage = whiteBackgroundPages.includes(currentPath);
             </svg>
             </button>
             <div class="dropdown-menu absolute hidden bg-gray-900 text-white font-medium text-sm rounded-b-lg pb-2 w-48 top-full left-0 shadow-lg">
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Web Development</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Mobile Apps Development</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">IoT Engineering</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Maintenance</a>
-                <a href="" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Engineering</a>
+                <a href="/solutions/WebDevelopmentPage" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Web Development</a>
+                <a href="/solutions/MobileAppsPage" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Mobile Apps Development</a>
+                <a href="/solutions/IotEngineeringPage" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">IoT Engineering</a>
+                <a href="/solutions/MaintenancePage" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Maintenance</a>
+                <a href="/solutions/EngineeringPage" class="text-sm block px-6 py-2 hover:bg-gray-800 transition-colors">Engineering</a>
             </div>
         </div>
 
@@ -91,12 +95,12 @@ const isWhiteBackgroundPage = whiteBackgroundPages.includes(currentPath);
 
     <div x-data="{ expanded: false }" class="md:hidden flex justify-between items-center w-full" :class="expanded ? 'absolute w-full top-0 right-0 z-20 bg-gray-800 px-4 py-6' : 'bg-transparent'">
         <button @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="mobile-nav" :class="expanded ? 'z-30' : ''">
-            <img src="/img/icons/hamburger.svg" alt="" class="w-[24px]">
+            <img src={`${isWhiteBackgroundPage ? "/img/icons/hamburger-dark.svg" : "/img/icons/hamburger.svg"}`} alt="" class="w-[24px]">
         </button>
         
         <a href="/index.html" class="flex">
             <img src="/img/icons/logo-circle.svg" class="w-[48px] mr-2">
-            <span class="text-[10px] font-bold text-white">BANDUNG<br>SEMESTA<br>TEKNOLOGI</span>
+            <span class={`text-[10px] font-bold ${isWhiteBackgroundPage ? 'text-gray-900' : 'text-white'}`}>BANDUNG<br>SEMESTA<br>TEKNOLOGI</span>
         </a>
         
         <div id="mobile-nav" :class="expanded ? 'mt-10 absolute flex flex-col gap-4 left-0 top-0 md:hidden w-screen h-screen py-6 bg-gray-800 text-white transform origin-center transition duration-400 ease-in-out' : 'hidden'">
@@ -156,11 +160,11 @@ const isWhiteBackgroundPage = whiteBackgroundPages.includes(currentPath);
                 </h2>
                 <div id="link-solutions" role="region" aria-labelledby="link-solutions-title" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'hidden grid-row-[0fr] opacity-0'" >
                     <div class="overflow-hidden flex flex-col text-white text-sm gap-5 my-2 md:my-0">
-                        <a href="" class="text-xs hover:text-sky-300 transition-colors">Web Development</a>
-                        <a href="" class="text-xs hover:text-sky-300 transition-colors">Mobile Apps Development</a>
-                        <a href="" class="text-xs hover:text-sky-300 transition-colors">IoT Engineering</a>
-                        <a href="" class="text-xs hover:text-sky-300 transition-colors">Maintenance</a>
-                        <a href="" class="text-xs hover:text-sky-300 transition-colors">Engineering</a>
+                        <a href="/solutions/WebDevelopmentPage" class="text-xs hover:text-sky-300 transition-colors">Web Development</a>
+                        <a href="/solutions/MobileAppsPage" class="text-xs hover:text-sky-300 transition-colors">Mobile Apps Development</a>
+                        <a href="/solutions/IotEngineeringPage" class="text-xs hover:text-sky-300 transition-colors">IoT Engineering</a>
+                        <a href="/solutions/MaintenancePage" class="text-xs hover:text-sky-300 transition-colors">Maintenance</a>
+                        <a href="/solutions/EngineeringPage" class="text-xs hover:text-sky-300 transition-colors">Engineering</a>
                     </div>
                 </div>
             </div>
