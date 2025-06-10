@@ -8,12 +8,13 @@ const whiteBackgroundPages = [
     '/solutions/IotEngineeringPage',
     '/solutions/MaintenancePage',
     '/solutions/EngineeringPage',
-    '/PartnersPage', 
     '/TermsPage',
     '/PrivacyPage'
 ];
 
-const isWhiteBackgroundPage = whiteBackgroundPages.includes(currentPath);
+const isPartnerDetailPage = currentPath.startsWith('/partners/') && currentPath !== '/partners' && currentPath !== '/PartnersPage';
+
+const isWhiteBackgroundPage = whiteBackgroundPages.includes(currentPath) || isPartnerDetailPage;
 ---
 
 <nav class={`fixed top-0 flex justify-between items-center w-full z-20 px-4 py-6 md:px-14 md:py-4 transition-all duration-300`} id="nav" data-white-bg={isWhiteBackgroundPage}>
@@ -84,7 +85,13 @@ const isWhiteBackgroundPage = whiteBackgroundPages.includes(currentPath);
             </div>
         </div>
 
-        <a class={`text-sm font-medium transition-colors ${isWhiteBackgroundPage ? 'text-gray-900 hover:text-sky-500' : 'text-white hover:text-sky-300'}`} href="">PARTNERS</a>
+        <a class={`text-sm font-medium transition-colors ${
+            currentPath === '/PartnersPage' || isPartnerDetailPage
+                ? 'font-bold'
+                : isWhiteBackgroundPage 
+                    ? 'text-gray-900 hover:text-sky-500' 
+                    : 'text-white hover:text-sky-300'
+        }`} href="/PartnersPage">PARTNERS</a>
     </div>
 
     <a class={`hidden md:block border-2 py-3 px-5 text-sm font-medium rounded-md transition-colors ${
@@ -169,7 +176,9 @@ const isWhiteBackgroundPage = whiteBackgroundPages.includes(currentPath);
                 </div>
             </div>
 
-            <a class="text-sm text-white font-medium pl-4 hover:text-sky-300 transition-colors" href="">Partners</a>                
+            <a class={`text-sm text-white font-medium pl-4 hover:text-sky-300 transition-colors ${
+                currentPath === '/PartnersPage' || isPartnerDetailPage ? 'font-bold' : ''
+            }`} href="/PartnersPage">Partners</a>                
         </div>
     </div>
 </nav>

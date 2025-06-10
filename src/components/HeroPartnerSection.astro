@@ -1,0 +1,46 @@
+---
+export interface Props {
+    title: string;
+}
+
+const { title} = Astro.props;
+---
+
+<div class="grid md:grid-cols-2 grid-cols-1 md:h-screen">
+    <div class="hidden md:block bg-[url('/img/hero-partner.png')] h-64 md:h-full bg-center bg-cover">
+        <div class="h-full bg-gradient-to-b from-black/25 to-white/0"></div>
+    </div>
+
+    <div class="h-full flex flex-col justify-center bg-gray-800">
+        <div class="md:pl-14 px-4 max-w-xl space-y-8">
+            <h1 class="text-4xl font-bold text-white leading-tight pt-24">
+                {title}
+            </h1>
+            <p class="text-white text-sm leading-relaxed">
+                BTEKLabs is a beacon of professionalism and innovation in the technology 
+                industry. With an unwavering commitment to excellence, we excel in crafting 
+                solutions that not only meet but exceed the expectations of our clients.
+            </p>
+
+            <div class="border-b border-white max-w-lg"></div>
+            
+            <div class="flex gap-4 mb-8 md:mb-0">
+                <div class="text-white space-y-2">
+                    <div class="text-sm font-semibold hidden md:block">Projects</div>
+                    <div class="text-3xl font-bold">20+</div>
+                    <div class="text-xs">ongoing and completed in all our kind of services</div>
+                </div>
+                <div class="text-white space-y-2">
+                    <div class="text-sm font-semibold hidden md:block">Partners</div>
+                    <div class="text-3xl font-bold">10+</div>
+                    <div class="text-xs">ranging from local to multinational company</div>
+                </div>
+                <div class="text-white space-y-2">
+                    <div class="text-sm font-semibold hidden md:block">Years Experience</div>
+                    <div class="text-3xl font-bold">5+</div>
+                    <div class="text-xs">as software house who handle various industry</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
