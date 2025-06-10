@@ -5,7 +5,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../components/ui/carousel";
+} from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
 interface ClientLogo {
@@ -35,13 +35,10 @@ const clientLogos: ClientLogo[] = [
   { src: "/img/logo-clients/toyotomo.png", alt: "Toyotomo Logo", name: "Toyotomo" },
 ];
 
-export default function ClientsCarousel() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
+export default function ClientProjectCarousel() {
 
   const chunkedLogos = clientLogos.reduce((chunks: ClientLogo[][], logo, index) => {
-    const chunkIndex = Math.floor(index / 6);
+    const chunkIndex = Math.floor(index / 5);
     if (!chunks[chunkIndex]) {
       chunks[chunkIndex] = [];
     }
@@ -50,35 +47,34 @@ export default function ClientsCarousel() {
   }, []);
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
-      <Carousel
-        plugins={[plugin.current]}
-        className="w-full"
-        onMouseEnter={() => plugin.current.stop()}
-        onMouseLeave={() => plugin.current.reset()}
-      >
-        <CarouselContent>
-          {chunkedLogos.map((chunk, chunkIndex) => (
-            <CarouselItem key={chunkIndex}>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 items-center justify-items-center p-4">
-                {chunk.map((logo, logoIndex) => (
-                  <div
-                    key={logoIndex}
-                    className="flex items-center justify-center w-full h-16 transition-all duration-300 hover:scale-110"
-                  >
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="h-15 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                      title={logo.name}
-                    />
-                  </div>
-                ))}
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-    </div>
+    <Carousel
+      className="w-3/4 mx-auto"
+      opts={{
+        align: "start",
+        loop: true as boolean,
+      }}
+    >
+      <CarouselContent>
+        {chunkedLogos.map((chunk, chunkIndex) => (
+          <CarouselItem key={chunkIndex}>
+            <div className="grid grid-cols-5 gap-2 md:gap-8 items-center justify-items-center ml-8">
+              {chunk.map((logo, logoIndex) => (
+                <div
+                  key={logoIndex}
+                  className="flex items-center justify-center w-full h-16 transition-all duration-300 hover:scale-110"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-16 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    title={logo.name}
+                  />
+                </div>
+              ))}
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
   );
 }

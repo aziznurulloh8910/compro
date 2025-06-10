@@ -1,0 +1,40 @@
+---
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="pt-24 md:px-14 md:pt-20 md:h-screen">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 pb-10">
+        <div class="px-4 md:px-0">
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+                {title}
+            </h1>
+        </div>
+        <div class="flex gap-8 mb-4 md:mb-0 items-end px-4 md:px-0">
+            <div class="space-y-2">
+                <div class="text-md font-semibold hidden md:block">Projects</div>
+                <div class="text-3xl md:text-5xl font-bold">20+</div>
+                <div class="text-xs hidden md:block">ongoing and completed in all our kind of services</div>
+                <div class="text-xs md:hidden block">Projects Completed</div>
+            </div>
+            <div class="space-y-2">
+                <div class="text-md font-semibold hidden md:block">Partners</div>
+                <div class="text-3xl md:text-5xl font-bold">10+</div>
+                <div class="text-xs hidden md:block">ranging from local to multinational company</div>
+                <div class="text-xs md:hidden block">Partners from Various Company</div>
+            </div>
+            <div class="space-y-2">
+                <div class="text-md font-semibold hidden md:block">Years Experience</div>
+                <div class="text-3xl md:text-5xl font-bold">5+</div>
+                <div class="text-xs hidden md:block">as software house who handle various industry</div>
+                <div class="text-xs md:hidden block">Years Experience</div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-[url('/img/hero-solution.png')] h-64 md:w-full md:h-[370px] bg-center bg-cover">
+        <div class="h-full bg-gradient-to-b from-black/25 to-white/0"></div>
+    </div>
+</div>
